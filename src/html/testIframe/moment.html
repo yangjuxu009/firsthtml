@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" onblur="blurf(this)">
+
+</body>
+<script type="text/javascript" src="../../js/moment.js"></script>
+<script type="text/javascript" >
+  moment().format('MMMM Do YYYY, h:mm:ss a'); // 五月 20日 2019, 11:31:13 中午
+  //.format("dddd, MMMM Do YYYY, h:mm:ss a E")
+ console.log(moment("2019-05-27").day());
+  function blurf(ev) {
+    "2014-01-12 2014-01-13 2014-01-14".match(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/g)
+    "2014--01-12 2014--01-13 2014--01-14".replace(/(\d{4})[\/-](\d{1,2})[\/-](\d{1,2})/g,function($0,$1,$2,d,s,x,w,g,h,j){
+      debugger
+    })
+
+    ev.value.match(/(ae){2}/.$1)
+    console.log(/(ae){2}/.$1)
+    //console.log(JSON.stringify(ev.value));
+    //console.log(reconvert(JSON.stringify(ev.value)));
+    console.log(reconvert(JSON.stringify(ev.value)));
+    var domdiv = document.createElement('div');
+     eval("var jstrss="+JSON.stringify(ev.value));
+
+    console.log("变化"+jstrss);
+    "%5Cu5730".replace(/(%5Cu)(\w{1,4})/,function (a,b,c,d,e,f) {
+      ;
+    })
+  }
+  function reconvert(str){
+    str = str.replace(/(\\){2}/gi,function($0){
+      return "\\";
+    });
+    str = str.replace(/(\\u)(\w{1,4})/gi,function($0){
+      return (String.fromCharCode(parseInt((escape($0).replace(/(%5Cu)(\w{1,4})/g,"$2")),16)));
+    });
+    str = str.replace(/(&#x)(\w{1,4});/gi,function($0){
+      return String.fromCharCode(parseInt(escape($0).replace(/(%26%23x)(\w{1,4})(%3B)/g,"$2"),16));
+    });
+    str = str.replace(/(&#)(\d{1,6});/gi,function($0){
+      return String.fromCharCode(parseInt(escape($0).replace(/(%26%23)(\d{1,6})(%3B)/g,"$2")));
+    });
+    return str;
+  }
+</script>
+</html>

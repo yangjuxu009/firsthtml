@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    #childDivContent {
+      width: 100%;
+      overflow: auto;
+      height: 538px;
+    }
+
+    #childDivContent .table-div {
+      width: 50%;
+      overflow: hidden;
+      height: 269px;
+      display: inline-block;
+    }
+
+    .table-float-left {
+      width: 50%;
+      float: left;
+      overflow: hidden;
+    }
+
+    .table-float-right {
+      width: 50%;
+      float: right;
+      overflow: hidden;
+    }
+    .content-div{
+      width: 100%;
+      overflow: auto;
+      height: 93px;
+      overflow-y: hidden;
+    }
+
+    #childDivContent .title-div {
+      height: 30px;
+      background: #00B83F;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<div id="childDivtitle">
+  <div class="table-div table-float-left" id="childTitle-div-left">
+    <div class="title-div" style="background: #00FF00">
+      <table id="childTitleLeft" border="1">
+      </table>
+    </div>
+  </div>
+  <div class="table-div table-float-left" id="childTitle-div-right">
+    <div class="title-div" style="background: #00FF00">
+      <table id="childTitleRight" border="1">
+
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="childDivContent">
+
+
+
+
+  <div class="table-div table-float-left" id="childTable-div-left">
+
+    <div class="content-div">
+      <table id="childTable" border="1">
+
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="table-div table-float-right" id="childTable-div-right">
+
+    <div class="content-div" style="overflow-y: auto">
+      <table id="childTable1" border="1">
+
+      </table>
+    </div>
+  </div>
+
+
+
+
+</div>
+
+</body>
+<script type="text/javascript">
+  for (var k = 0; k < 300; k++) {
+    var domtr = document.createElement('tr');
+    for (var i = 0; i < 100; i++) {
+
+      var domtd = document.createElement('td');
+      var domspan = document.createElement('span');
+
+      var domtext = document.createTextNode('tdtext' + i);
+
+      domspan.appendChild(domtext);
+      domtd.appendChild(domtext);
+      domtr.appendChild(domtd);
+    }
+    document.getElementById('childTable').appendChild(domtr);
+  }
+
+  function myFunction1(e) {
+
+    document.querySelector('#childTable-div-right .content-div').scrollLeft = e.scrollLeft;
+    //.scrollLeft= e.scrollLeft
+  }
+</script>
+
+<script type="text/javascript">
+  for (var k = 0; k < 300; k++) {
+    var domtr = document.createElement('tr');
+    for (var i = 0; i < 100; i++) {
+
+      var domtd = document.createElement('td');
+      var domspan = document.createElement('span');
+
+      var domtext = document.createTextNode('tdtext' + i);
+
+      domspan.appendChild(domtext);
+      domtd.appendChild(domtext);
+      domtr.appendChild(domtd);
+    }
+    document.getElementById('childTable1').appendChild(domtr);
+  }
+
+</script>
+<script type="text/javascript">
+  for (var k = 0; k < 2; k++) {
+    var domtr = document.createElement('tr');
+    for (var i = 0; i < 100; i++) {
+
+      var domtd = document.createElement('td');
+      var domspan = document.createElement('span');
+
+      var domtext = document.createTextNode('tdtext' + i);
+
+      domspan.appendChild(domtext);
+      domtd.appendChild(domtext);
+      domtr.appendChild(domtd);
+    }
+    document.getElementById('childTitleLeft').appendChild(domtr);
+
+  }
+  for (var k = 0; k < 2; k++) {
+    var domtr = document.createElement('tr');
+    for (var i = 0; i < 100; i++) {
+
+      var domtd = document.createElement('td');
+      var domspan = document.createElement('span');
+
+      var domtext = document.createTextNode('tdtext' + i);
+
+      domspan.appendChild(domtext);
+      domtd.appendChild(domtext);
+      domtr.appendChild(domtd);
+    }
+
+    document.getElementById('childTitleRight').appendChild(domtr);
+  }
+
+</script>
+<script type="text/javascript">
+
+  document.getElementById('childTable-div-right').onscroll = function (evs) {
+
+    document.getElementById('childTable-div-left').scrollTop = this.scrollTop;
+  };
+  document.querySelector('#childTable-div-left .content-div').onscroll = function (evs) {
+    document.querySelector('#childTitle-div-left').scrollLeft = this.scrollLeft;
+  };
+  document.querySelector('#childTable-div-right .content-div').onscroll = function (evs) {
+    document.querySelector('#childTable-div-left .content-div').scrollTop = this.scrollTop;
+
+    document.querySelector('#childTitle-div-right').style.width=this.offsetWidth-(this.offsetWidth-this.clientWidth)+"px"
+    document.querySelector('#childTitle-div-right').scrollLeft = this.scrollLeft;
+  };
+</script>
+<script type="text/javascript" src="eventAddANDDelete.js"></script>
+<script type="text/javascript">
+  var sss = new eventOBJdom();
+  document.dataARRS = [1, 2, 5, 8, 65, 6, 5, 4, 5, 5, 5];
+  sss.addEvent('sdsdfsd', function (EVES) {
+    alert(EVES.currentTarget.dataARRS);
+  });
+  sss.fireEvent('sdsdfsd');
+</script>
+
+</html>

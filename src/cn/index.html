@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+<HEAD>
+  <TITLE> ZTREE DEMO </TITLE>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="../css/css/zTreeStyle/zTreeStyle.css" type="text/css">
+  <style>
+    body {
+      background-color: white;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    div, p, table, th, td {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      font-size: 12px;
+      font-family: dotum, Verdana, Arial, Helvetica, AppleGothic, sans-serif;
+    }
+
+    #testIframe {
+      margin-left: 10px;
+    }
+  </style>
+  <script type="text/javascript" src="../js/ztree/jquery-1.4.4.min.js"></script>
+  <script type="text/javascript" src="../js/ztree/jquery.ztree.core.js"></script>
+  <script type="text/javascript">
+    var zTree;
+    var demoIframe;
+
+   function Preaent(name) {
+     this.name="name";
+     this.alertName= function(){
+       alert(this.name);
+     }
+   };
+   var strob={name:"strob"};
+   Preaent.prototype.name="name3";
+var name1=new Preaent("name1");
+var name2=new Preaent("name2");
+Preaent.call(strob,"text1");
+    var sstr = 'asfdfdeeades';
+    var regexp=/d(?!e)/g;
+    var reg=sstr.match(regexp)
+
+
+
+    var setting = {
+      isSimpleData : true, //数据是否采用简单 Array 格式，默认false
+      treeNodeKey : "id", //在isSimpleData格式下，当前节点id属性
+      treeNodeParentKey : "pId", //在isSimpleData格式下，当前节点的父节点id属性
+      async: {
+        enable: true,
+        contentType: "application/json",
+        url: "treeJSON.json",
+        autoParam: ["id=zId", "name=zName","isParent","open"],
+        type:"post"
+      },
+      view: {
+        dblClickExpand: true,
+        showLine: false,
+        selectedMulti: false
+      },
+      data: {
+        simpleData: {
+          enable: true,
+          idKey: "id",
+          pIdKey: "pId",
+          rootPId: ""
+        }
+      },
+      callback: {
+        beforeClick: function (treeId, treeNode) {
+          var zTree = $.fn.zTree.getZTreeObj("tree");
+          var parentZNode = zTree.getNodeByParam("id", treeNode.id, null);//获取指定父节点
+         // zTree.addNodes(parentZNode,[{"id": 201, "pId": 2, "name": "Checkbox 勾选操作"}], false);
+
+          var nodes = zTree.getSelectedNodes();
+
+          if (nodes.length>0) {
+            zTree.reAsyncChildNodes(nodes[0], "refresh");
+          }
+
+          if (treeNode.isParent&&treeNode.open == false) {
+            zTree.expandNode(treeNode,true);
+          }
+        }
+      }
+    };
+
+    var zNodes = [
+      {id: 1, pId: 0, name: "[core] 基本功能 演示",isParent:true},
+
+      {id: 2, pId: 0, name: "[excheck] 复/单选框功能 演示",isParent:true, open: false},
+
+      {id: 3, pId: 0, name: "[exedit] 编辑功能 演示",isParent:true, open: false},
+
+      {id: 4, pId: 0, name: "大数据量 演示",isParent:true, open: false},
+
+
+      {id: 5, pId: 0, name: "组合功能 演示",isParent:true, open: false},
+
+      {id: 6, pId: 0, name: "其他扩展功能 演示", open: true,isParent:false}
+
+    ];
+
+    $(document).ready(function () {
+      var t = $("#tree");
+      t = $.fn.zTree.init(t, setting, zNodes);
+      var zTree = $.fn.zTree.getZTreeObj("tree");
+
+      //zTree.selectNode(zTree.getNodeByParam("id", 101));
+
+    });
+  </script>
+</HEAD>
+
+<BODY>
+<TABLE border=0 height=600px align=left>
+  <TR>
+    <TD width=260px align=left valign=top style="BORDER-RIGHT: #999999 1px dashed">
+      <ul id="tree" class="ztree" style="width:260px; overflow:auto;"></ul>
+    </TD>
+  </TR>
+</TABLE>
+
+</BODY>
+</HTML>

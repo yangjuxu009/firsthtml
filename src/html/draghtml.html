@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag</title>
+</head>
+<body>
+<div id="cun" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<script>
+  function allowDrop(ev){
+    //不执行默认处理（拒绝被拖放）
+    ev.preventDefault();
+  };
+  function drag(ev){
+    //使用setData(数据类型，携带的数据)
+    //方法将要拖放的数据存入dataTransfer对象
+    ev.dataTransfer.setData("Text",ev.target.id);
+  };
+  function drop(ev){
+    //不执行默认处理（拒绝被拖放）
+    ev.preventDefault();
+    //使用getData()获取到数据，然后赋值给data
+    var data = ev.dataTransfer.getData("Text");
+    //使用appendChild方法把拖动的节点放到元素节点中成为其子节点
+    ev.target.appendChild(document.getElementById(data));
+  };
+
+</script>
+
+</body>
+</html>

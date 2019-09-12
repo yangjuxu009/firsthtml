@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    ul{ overflow-x: auto; list-style: none; white-space:nowrap; width: auto;padding: 0;margin: 10px 0;}
+
+    ul li { margin-left: 20px;  display: inline-block;  }
+  </style>
+</head>
+<body>
+<div id="outer-container" style="width: 50%;height:30px;">
+  <div>
+    <ul id="ulss">
+      <li class="divli">变化1</li>
+      <li class="divli">变化2</li>
+      <li class="divli">变化3</li>
+      <li class="divli">变化4</li>
+      <li class="divli">变化5</li>
+      <li class="divli">变化5</li>
+      <li class="divli">变化5</li>
+      <li class="divli">变化5</li>
+      <li class="divli">变化5</li>
+      <li class="divli">变化5</li>
+      <li class="divli">变化5</li>
+      <li class="divli">变化5</li>
+    </ul>
+  </div>
+</div>
+
+<div id="textdivleft"></div>
+<div id="textdivright"></div>
+<div id="offsetWidth"></div>
+<div id="scrollbarWidth"></div>
+<div id="liwidth"></div>
+<div id="clientWidth"></div>
+</body>
+<script type="text/javascript">
+
+  var lidom= document.querySelector("li");
+  var liwidth= lidom&&lidom.clientWidth;
+  //整体宽度
+  var maxwidth=document.getElementById('outer-container').style.width.replace("px","");
+  var ulssdom=document.getElementById('ulss');
+  var scrollWidth=document.getElementById('ulss').scrollWidth;
+  var clientWidth=document.getElementById('ulss').clientWidth;
+  //ul滚动条的宽度
+  var scrollbarWidth = ulssdom.offsetWidth - ulssdom.clientWidth;
+  var offsetWidth=document.getElementById('ulss').offsetWidth;
+  document.getElementById('textdivright').innerText="scrollWidth:"+scrollWidth;
+  document.getElementById('scrollbarWidth').innerText="scrollbarWidth:"+scrollbarWidth;
+  document.getElementById('offsetWidth').innerText="offsetWidth:"+offsetWidth;
+  document.getElementById('liwidth').innerText="liwidth:"+liwidth;
+  document.getElementById('clientWidth').innerText="clientWidth:"+clientWidth;
+
+
+
+</script>
+</html>

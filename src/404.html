@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+        * {
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        html {
+            color: #888;
+            display: table;
+            font-family: sans-serif;
+            height: 100%;
+            text-align: center;
+            width: 100%;
+        }
+
+        body {
+            display: table-cell;
+            vertical-align: middle;
+            margin: 2em auto;
+        }
+
+        h1 {
+            color: #555;
+            font-size: 2em;
+            font-weight: 400;
+        }
+
+        p {
+            margin: 0 auto;
+            width: 280px;
+        }
+
+        @media only screen and (max-width: 280px) {
+
+            body, p {
+                width: 95%;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin: 0 0 0.3em;
+            }
+
+        }
+      .divAll div{
+        position: relative;
+        display: inline-block;
+        background-color: #cccccc;
+      }
+        table
+        {
+          border-collapse:collapse;
+        }
+
+        table, td, th
+        {
+          border:1px solid black;
+          background-color: #cccccc;
+          position: relative;
+        }
+
+    </style>
+</head>
+<body>
+<!--<object data="http://221.181.129.90:30009/dmcnew/sso.html?urlCode=gisMap&sysId=gisa&cid=B599ACECEB8F268B53A81404FEB07B88D38A5AC82CFA16583E9DB6A6B08BCBEDC9F77E74A416AEE8F9DAB1B690BBD3FFC87A4133E4B1BBB352CAD068DBA76B23533FC61D1886F3741E65E6794F0B71BE14A4CE17006A56A4
+">
+  <embed src="http://221.181.129.90:30009/dmcnew/sso.html?urlCode=gisMap&sysId=gisa&cid=B599ACECEB8F268B53A81404FEB07B88D38A5AC82CFA16583E9DB6A6B08BCBEDC9F77E74A416AEE8F9DAB1B690BBD3FFC87A4133E4B1BBB352CAD068DBA76B23533FC61D1886F3741E65E6794F0B71BE14A4CE17006A56A4
+"> </embed>
+
+</object>-->
+
+
+<h1>Page Not Found</h1>
+    <p class="solls">Sorry, but the page you were trying to view does not exist.</p>
+
+
+<div class="divAll">
+
+  <div style="background: #888888;width: 100px;height: 200px;border: 10px solid red; border-collapse:collapse;">
+    2222
+  </div><div style="background: #888888;width: 100px;height: 200px;border: 10px solid green; border-collapse:collapse;">
+  2222
+</div>
+  <button type="button" id="btn" onClick="javascript:load_home();" >确认</button>
+</div>
+<form id= "form1" action = "http://localhost:9999/postu" method = "post">
+
+  姓名：<input type = 'text' name = "name" value ="dragon"><br/>
+
+  年龄：<input type = "number" name = "age" value ="25">
+
+  <input type = "submit" value =" 提交"/>
+
+</form>
+    <table>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+      </tr>
+      <tr>
+        <td>Bill</td>
+        <td>Gates</td>
+      </tr>
+      <tr>
+        <td>Steven</td>
+        <td>Jobs</td>
+      </tr>
+    </table>
+<iframe id="viewDiv">
+  viewDiv
+</iframe>
+
+    <div id="move" contentEditable="true">可编辑</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+
+  //var divTitle=$('#move');
+ /* divTitle.draggable().click(function ()
+  {
+    $(this).draggable({ disabled: false });
+    $(this).css('backgroundColor', 'transparent');
+  }).dblclick(function ()
+  {
+    $(this).draggable({ disabled: true });
+    $(this).css('backgroundColor', '#FFFF6F');
+  });*/
+  function load_home() {
+
+ /*   $.ajax({
+      type: "GET",
+      url: "http://localhost:9999/postu",
+      data: {"first":"ones"},
+      dataType: "json",
+      success: function(data){
+    debugger
+      }
+    });*/
+
+
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange=function()
+    {
+      if (xmlHttp.readyState==4 && xmlHttp.status==200)
+      {
+       console.log(xmlHttp.responseText);
+      }
+    };
+
+    xmlHttp.open('POST', 'http://localhost:9999/', true);
+    xmlHttp.send("buhsonong");      //吧input框中的value发送过去
+
+   // location.pathname="/postu"
+   // var url=encodeURIComponent("http://221.181.129.90:30009/dmcnew/sso.html?urlCode=gisMap&sysId=gisa&cid=B599ACECEB8F268B53A81404FEB07B88D38A5AC82CFA16583E9DB6A6B08BCBEDC9F77E74A416AEE8F9DAB1B690BBD3FFC87A4133E4B1BBB352CAD068DBA76B23533FC61D1886F3741E65E6794F0B71BE14A4CE17006A56A4")
+    //document.getElementById("viewDiv").setAttribute("src",decodeURIComponent(url))
+    }
+  //document.getElementsByClassName("solls")
+  document.cookie;
+  window.sessionStorage;
+  window.localStorage;
+  function timetest() {
+
+
+    var x = document.cookie;
+
+
+    //window.sessionStorage.getItem("name");
+   // window.localStorage.getItem("name");
+    console.log("kassssss");
+  }
+  timetest();
+</script>
+</html>
+<!-- IE needs 512+ bytes: https://blogs.msdn.microsoft.com/ieinternals/2010/08/18/friendly-http-error-pages/ -->

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <style type="text/css">
+    body,html{
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+    .main{height:0;width: 8%;
+      margin: 20px;
+      position: relative;
+      padding-top: 8%;border: 1px solid #00B83F}
+
+
+    .tableddcell{
+      width: 200px;
+      word-wrap: break-word;
+      padding: 10px;
+      word-break: break-all;
+      overflow: hidden;
+      border: 1px solid;
+      display: table-cell;
+      max-height: 70px;
+      text-align: left;
+      vertical-align: middle;
+      line-height: 30px;
+
+    }
+.texttwo{
+  word-break: break-all;
+  height: 30px;
+  width: 200px;
+  border: 1px solid;
+  /*word-wrap: break-word;*/
+}
+
+    .tipsdivbefor:before {
+      position: absolute;
+      content: " ";
+      width: 0;
+      height: 0;
+      top: 38%;
+      left: -9px;
+      border-width: 4px;
+      border-style: solid;
+      border-color: transparent #000000 transparent transparent;
+    }
+    .tipsdivbefor:after {
+      position: absolute;
+      content: " ";
+      width: 0;
+      height: 0;
+      top: 42%;
+      left: -7px;
+      z-index: 1;
+      border-width: 3px;
+      border-style: solid;
+      border-color: transparent #ffffff transparent transparent;
+    }
+   /* div{
+      height: 90px;
+      background: #c2c2c2;
+
+    }
+    div div{
+      background: grey;
+      width: 60px;
+      display: inline-block
+    }*/
+    .marginauto{
+      position: relative;
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 160px;
+      background: #c2c2c2;
+      height: 360px;
+    }
+    .scrolldiv{
+      border: 1px solid #00c13f;
+      height: 300px;
+      width: 300px;
+      overflow: auto;
+      margin: auto;
+    }
+    .scrolldiv>div{
+      height: 100px;
+      width: 800px;
+    }
+  </style>
+</head>
+<body >
+<div class="marginauto"></div>
+<div class="gridparent">
+  <div style="width: 100px;text-overflow: ellipsis;overflow: hidden" ><div style="display: inline-block; text-overflow: ellipsis;overflow: hidden"  id="testdiv">
+    12kdslfjd
+  </div></div>
+  <div>22</div>
+  <div>33</div>
+  <div>44</div>
+  <div>55</div>
+  <div>66</div>
+</div>
+
+
+<div class="scrolldiv" onmousemove="onmousemovefcn(this)">
+  <div>    </div>
+  <div>66666</div>
+  <div>65555</div>
+  <div>444444</div>
+  <div>22222</div>
+  <div>55555</div>
+</div>
+<!--<div style="overflow: auto;height: 80px;width: 300px">
+  <div style="display: table;table-layout: fixed;">
+    <div class="tableddcell">dfsfsdfsdfsdafasdfsaddfsfsdfsdfsdafasdfsaddfsfsdfsdfsdafasdfsaddfsfsdfsdfsdafasdfsad</div>
+  </div>
+</div>-->
+<!--<div class="tipsdivbefor" style="font-size: 12px;left:50px;box-sizing: border-box; position: absolute;display: table; max-width: 100px;margin: 30px auto; line-height: 22px; word-break: break-all;border: 1px solid">dsfsdfdsfasd</div>
+<input type="text" oninput="inputoninput(this)" onchange="inputonchange(this)" ondblclick="inputondbput()" >-->
+<!--
+
+<div style="border: 1px solid;padding-left:500px;height: 300px;overflow: hidden"><div style="overflow: auto;width: 100%; border: 1px solid #c2c2c2"><div style="width: 1500px;height: 300px;border: 1px solid"></div></div></div>
+-->
+<!--左右固定中间百分比变化
+<div style="padding: 0 60px">
+  <div style="position: absolute;left: 0;top: 0;"></div>
+  <div style="width: 100%;background: #00B83F;overflow: hidden">565555555555555555555555555555555555555555555555</div>
+  <div style="position: absolute;right: 0;top: 0;"></div>
+</div>-->
+
+<input type="number" min="18">
+
+</body>
+<script type="text/javascript">
+  var inum = 0;
+  var addLeftScroll;
+  var delLeftScroll;
+  var onmousemovefcn=function(ev){
+    delLeftScroll ? clearInterval(delLeftScroll) : '';
+    addLeftScroll ? clearInterval(addLeftScroll) : '';
+   var rectpx= ev.getBoundingClientRect();
+    console.log(rectpx.left);
+    console.log("width:"+rectpx.width);
+
+    console.log('scrollWidth' + ev.scrollWidth);
+    console.log('scrollLeft' + ev.scrollLeft);
+
+    var rectallwidth = rectpx.width/2 + rectpx.left;
+    console.log('rectallwidth' + rectallwidth);
+    var scrollleftwidth=ev.scrollWidth-rectpx.width+19;
+    var eve  = window.event || arguments.callee.caller.arguments[0];
+    console.log(eve.clientX);
+
+    if(eve.clientX>rectallwidth){
+       addLeftScroll = setInterval(function () {
+         delLeftScroll ? clearInterval(delLeftScroll) : '';
+        inum++;
+         console.log(inum);
+        if(inum>scrollleftwidth){
+          ev.scrollLeft = scrollleftwidth;
+          inum = scrollleftwidth;
+          clearInterval(addLeftScroll);
+        }else {
+          ev.scrollLeft = inum;
+        }
+
+      });
+
+    }
+    if(eve.clientX<rectallwidth&&ev.scrollLeft != 0){
+
+      addLeftScroll ? clearInterval(addLeftScroll) : '';
+      delLeftScroll = setInterval(function () {
+        inum--;
+        if(inum<0){
+          ev.scrollLeft = 0;
+          inum = 0;
+          clearInterval(delLeftScroll);
+        }else {
+          ev.scrollLeft = inum;
+        }
+
+
+      });
+
+    }
+    if(ev.scrollLeft == 0 && delLeftScroll){
+      clearInterval(delLeftScroll), inum = 0;
+    }
+
+
+
+
+   /* debugger
+    console.log(e.clientWidth)
+
+    var w = e.offsetWidth,
+      h = e.offsetHeight,
+      x = ( e.clientX - e.offsetLeft - ( w / 2 ) ) * ( w > h ? ( h / w ) : 1 ),
+      y = (e.clientY - e.offsetTop - (h / 2)) * (h > w ? (w / h) : 1),
+      // 上(0) 右(1) 下(2) 左(3)
+      direction = Math.round( ( ( ( Math.atan2( y, x ) * ( 180 / Math.PI ) ) + 180 ) / 90) + 3 ) % 4,
+      eventType = e.type;
+    console.log("x:"+x)
+    console.log("y:"+y)*/
+
+  }
+
+  document.getElementById("testdiv").onclick=function () {
+    debugger
+    this.getBoundingClientRect();
+    ;
+  }
+  function inputoninput(e) {
+   var strval = e.value.replace(/[^-0-9]/g, '').match(/(0|-?([1-9][0-9]{0,8})?)/g);
+    strval? e.value=strval[0]:e.value=strval
+   /* var excel = /(0|-?([1-9][0-9]{0,8})?)/g;
+    var strval = excel.exec(e.value);
+    debugger
+    strval? e.value=strval[0]:e.value=strval*/
+  }
+  function inputondbput(e) {
+   console.log(11111111)
+  }
+  function inputonchange(e) {
+    var strval = e.value.match(/0|-?([1-9][0-9]{0,8})/g);
+    strval? e.value=strval[0]:e.value=""
+  }
+  var Counter = /*(*/function() {
+    this.onefunction = function () {
+
+    };
+    this.twofunction =function twofunction() {
+
+    }
+  }/*)()*/;
+
+ var sst= new Counter();
+
+  function dsdfS() {
+     var iiii = 5;
+
+  }
+
+  Counter.prototype.treeFunction = function () {
+    console.log('ddsfsd');
+  };
+  dsdfS.prototype=sst;
+  //dsdfS.constructor=dsdfS;
+  var sssss=new dsdfS();
+ // sssss.twofunction();
+  var array1 = [1, 2, 3, 65];
+  var array2 = [1, 9, 3, 65];
+  for (var i = 0; i < array2.length; i++) {
+    if(i==2){
+      array2.splice(2, 1);
+    }
+  }
+  var arr3 = array1.concat(array2);
+  var obksk={d:1,b:2}
+  obksk.length
+ // alert(Object.getOwnPropertyNames(obksk).length)
+</script>
+</html>
+

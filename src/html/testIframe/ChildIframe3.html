@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .table-div-float-left {
+      width: 50%;
+      float: left;
+      overflow: hidden;
+    }
+    .table-div-float-right {
+      width: 50%;
+      float: right;
+      overflow: hidden;
+    }
+    .div-left-width,.leftAllTable {
+      width: 500px;
+    }
+    .div-title {
+       overflow: hidden;
+    }
+    .div-float-left{
+      float: left;
+    }
+    #childDivContent td{
+      width: 70px;
+      white-space: nowrap;
+      height: 30px;
+      border: 1px solid #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #childDivtitle th{
+      width: 70px;
+      white-space: nowrap;
+      height: 30px;
+      border: 1px solid #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #childDivtitle table {
+      border-collapse: collapse;
+      border: 1px solid #333333;
+    }
+    #childDivContent table {
+      border-collapse: collapse;
+      border: 1px solid #333333;
+    }
+
+  </style>
+</head>
+<body>
+<div class="leftAllTable">
+
+
+
+<!-- 左边栏位title-->
+<div id="childDivtitle" class="div-left-width div-title">
+
+  <div class="table-div-float-left" style="width: 30%;background: #00c13f">
+    <table style="width: 150px">
+    <thead>
+    <tr class="towTr" style="height: 66px">
+      <th >排班班组</th>
+      <th >月合计</th>
+    </tr>
+
+    </thead>
+  </table>
+  </div>
+  <div class="table-div-float-left" id="table-left-title" style="width: 70%;background: #A7F43D">
+    <table style="width: 1260px">
+      <thead>
+      <tr>
+        <th style="text-align: left" colspan="14">班型统计（天）</th>
+      </tr>
+      <tr>
+        <th >休</th>
+        <th >早班</th>
+        <th >中班</th>
+        <th >晚班</th>
+        <th >中晚班</th>
+        <th >早晚班</th>
+        <th >早中班</th>
+        <th >行政班</th>
+        <th >早晚班</th>
+        <th >早中班</th>
+        <th >行政班</th>
+        <th >早晚班</th>
+        <th >早中班</th>
+        <th >行政班</th>
+      </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<!-- 左边栏位content-->
+<div id="childDivContent" class="div-left-width">
+  <div style="width: 100%;text-align: center">
+    <div class="div-tr" style="border-bottom: 1px solid #333333;">排班人数</div>
+    <div class="div-tr">人均工时</div>
+  </div>
+  <div class="table-div-content-leftAndright" style="width: 100%">
+    <div style="width: 30%" class="div-float-left">
+      <table style="width: 150px">
+        <tbody>
+        <tr ><td style="width: 70px" >排班班组</td><td style="width: 70px">月合计</td></tr>
+        <tr ><td >排班班组</td><td >月合计</td></tr>
+        <tr ><td >排班班组</td><td >月合计</td></tr>
+        <tr ><td >排班班组</td><td >月合计</td></tr>
+        <tr ><td >排班班组</td><td >月合计</td></tr>
+        <tr ><td >排班班组</td><td >月合计</td></tr>
+        <tr ><td >排班班组</td><td >月合计</td></tr>
+        </tbody>
+      </table>
+
+    </div>
+    <div style="width: 70%;height: 100%;overflow-x: auto;overflow-y: hidden" id="table-left-content"class="div-float-left" onscroll="document.getElementById('table-left-title').style.width=(this.offsetWidth-(this.offsetWidth-this.clientWidth))+'px',document.getElementById('table-left-title').scrollLeft=this.scrollLeft">
+      <table style="width: 1260px">
+        <tbody>
+        <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+        <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+        <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+        <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+        <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+        <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+        <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="clear: both"></div>
+  </div>
+
+</div>
+</div>
+</body>
+<script type="text/javascript">
+
+
+</script>
+
+</html>

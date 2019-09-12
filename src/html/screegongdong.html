@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #subtab-mains{
+      width: 30px;
+      height: 31px;
+      background: #388BF7;
+      line-height: 31px;
+      text-align: center;
+    }
+    #subtab-mains img{
+      width: 14px;
+      height: 13px;
+    }
+    #subtab-content-ul-copy .li-firstdiv{
+      margin-left: 10px;
+    }
+    #subtab-right-conNum:hover {
+      background: #388BF7;
+      color: #FFFFFF;
+    }
+
+    #subtab-right-conNum {
+      background: #EBEBEB;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    #subtab-right-conNumcontent #subtab-content-ul-copy {
+      padding: 0;
+      margin: 11px 0;
+      list-style: none;
+    }
+
+    #subtab-right-conNumcontent .subtabtitle {
+      width: 49%;
+      display: inline-block;
+      color: #388bf7;
+
+    }
+
+    #subtab-right-conNumcontent #subtab-content-ul-copy li {
+      min-width: 100px;
+      font-size: 14px;
+    }
+
+    #subtab-right-conNumcontent #subtab-content-ul-copy .content_sub_li_c {
+      background-color: #388bf7;
+      color: #FFFFFF;
+    }
+
+    #subtab-right-conNumcontent #subtab-content-ul-copy .sub_li_c:hover {
+      background: #eeeeee;
+    }
+
+    #subtab-right-conNumcontent div {
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+    }
+
+    #subtab-right-conNumcontent .li-divX {
+      display: none;
+      margin-right: 30px;
+      float: right;
+    }
+
+    #subtab-content-ul-copy li:hover .li-divX {
+      display: inline-block;
+    }
+
+    #subtab-right-conNumcontent div span {
+
+    }
+
+    #subtab-right-conNumcontent .domTabSG {
+      height: 15px;
+      border-left: solid 1px;
+      vertical-align: middle;
+      color: #ededed;
+    }
+
+    #subtab-right-conNumcontent {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      display: none;
+      overflow: auto;
+      height: 200px;
+      width: 270px;
+    }
+
+    #subtab-content-ul {
+      overflow-x: auto;
+      list-style: none;
+      white-space: nowrap;
+      width: auto;
+      padding: 0;
+      margin: 0;
+      height: 600px;
+    }
+
+    #subtab-content-ul li {
+      display: inline-block;
+      width: 124px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 12px;
+      border-right: 2px solid #f0f0f0;
+      border-top: 2px solid #FFFFFF;
+      text-align: left;
+    }
+
+    #subtab-content-ul .clickli {
+      background: #E4EFF8;
+      border-top: 2px solid #40A3F1;
+    }
+
+    #subtab-content-ul li:hover {
+      background: #E4EFF8;
+    }
+
+    #subtab-content-ul li div {
+      display: inline-block;
+    }
+
+    #subtab-content-ul li .li-firstdiv {
+      width: 95px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-left: 5px;
+    }
+
+    #subtab-content-ul li .li-divX {
+      position: relative;
+      top: 2px;
+      display: none;
+      right: 5px;
+      float: right;
+    }
+
+    #main_subtabscoment .moveclose {
+      display: none;
+    }
+  </style>
+  <title>Title</title>
+</head>
+<body>
+<div id="main_subtabscoment" style="position: relative;">
+  <div id="main_subtabs" style="min-width: 600px; ">
+    <div id="subtab-left-move" style="float: left;" class="moveclose"><img src="left_move.png" alt="左移"></div>
+    <div id="subtab-mains" style="float: left;"><img src="mainhome2x.png" alt="主页"></div>
+    <div id="subtab-outer-container"
+         style="display: inline-block;height:40px; line-height: 40px;overflow: hidden;position: relative;top: 0;">
+      <div id="subtab-content-conle">
+        <ul id="subtab-content-ul">
+        </ul>
+      </div>
+    </div>
+    <div id="subtab-right-move" style="position: absolute;right: 30px;top: 0" class="moveclose"><img
+      src="right_move.png" alt="右移"></div>
+    <div id="subtab-right-conNum"
+         style="position: absolute;right: 0;top: 4px;height: 33px;line-height: 33px;width: 30px;">0
+    </div>
+
+
+    <div id="subtab-right-conNumcontent" style="z-index: 999;background: #FFFFFF">
+      <div style="width: 100%;text-align: center;border-bottom: 1px solid #e6e6e6;"><span class="cloceAll subtabtitle">关闭全部页签</span><span
+        class="domTabSG"></span><span class="closeOther subtabtitle">关闭其他页签</span>
+      </div>
+      <ul id="subtab-content-ul-copy"></ul>
+    </div>
+
+  </div>
+</div>
+<div id="subtab-add-li" style="clear: both;margin-top: 60px">添加</div>
+<div id="subtab-delete-li">删除</div>
+</body>
+<script type="text/javascript">
+  //点击左移次数
+  var leftclicknum = 0;
+  //点击右移次数
+  var rightclicknum = 0;
+  //计算页签总长度
+  var domwidth = 0, domliwidthdef, domis = 0;
+  //点击次数
+  var numclick = '0';
+  var addEvent = (function () {
+    if (document.addEventListener) {
+      return function (element, type, callback) {
+        element.addEventListener(type, callback, false);
+      };
+    } else {
+      return function (element, type, callback) {
+        element.attachEvent('on' + type, callback);
+      };
+    }
+  })();
+  var deleteEvent = (function () {
+    if (document.removeEventListener) {
+      return function (element, type, callback) {
+        element.removeEventListener(type, callback, false);
+      };
+    } else {
+      return function (element, type, callback) {
+        element.detachEvent('on' + type, callback);
+      };
+    }
+  })();
+  /*window.onresize = function () {
+    getcalcsubtabsWidth();
+  };*/
+  domwidth = domwidth ? domwidth : document.getElementById('main_subtabs').clientWidth;
+  var scrollleft = 0;
+  //右移动
+  document.getElementById('subtab-right-move').onclick = function () {
+    rightclicknum++;
+    /*leftclicknum++;*/
+    MoveWidth(rightclicknum, 'right');
+  };
+
+  function MoveWidth(clicknum, direction) {
+    //setCss(document.getElementById("subtab-outer-container"),{width:domwidth});
+    var lidom = document.querySelector('li');
+    var liwidth = lidom && lidom.offsetWidth;
+    //整体宽度
+    var ulssdom = document.getElementById('subtab-content-ul');
+    //ul滚动条的宽度
+    var scrollbarWidth = ulssdom.scrollWidth - ulssdom.clientWidth;
+    var surplusWidth = scrollbarWidth - ulssdom.scrollLeft;
+
+
+    if (clicknum == 'add' && 'right' == direction) {
+      scrollleft = liwidth;
+      //leftclicknum+=rightclicknum;
+      //ulssdom.scrollLeft = Math.ceil(scrollbarWidth/liwidth)*liwidth;
+      ulssdom.scrollLeft = scrollbarWidth;
+      document.getElementById('subtab-right-move').querySelector('img').setAttribute('src', 'right_move_only.png');
+      return;
+    }
+    if ('right' == direction) {
+      //scrollleft =liwidth;
+      scrollleft = liwidth;
+      //scrollleft=document.getElementById('subtab-outer-container').offsetWidth/11+2;
+      //leftclicknum+=rightclicknum;
+      ulssdom.scrollLeft = ulssdom.scrollLeft + scrollleft;
+      document.getElementById('subtab-left-move').querySelector('img').setAttribute('src', 'left_move.png');
+    }
+    if ('right' == direction && ulssdom.scrollLeft / liwidth > Math.floor(scrollbarWidth / liwidth)) {
+      ulssdom.scrollLeft = Math.ceil(scrollbarWidth / liwidth) * liwidth;
+      document.getElementById('subtab-right-move').querySelector('img').setAttribute('src', 'right_move_only.png');
+      return;
+    }
+
+    /*if("left"==direction&&Math.abs(clicknum)>Math.floor(scrollbarWidth/liwidth)){
+      leftclicknum=0;
+      rightclicknum=0;
+      return;
+    }*/
+
+    if ('left' == direction) {
+      // rightclicknum+=leftclicknum;
+      //scrollleft =liwidth;
+      scrollleft = liwidth;
+      ulssdom.scrollLeft = ulssdom.scrollLeft - scrollleft.toFixed(2);
+      document.getElementById('subtab-right-move').querySelector('img').setAttribute('src', 'right_move.png');
+    }
+    if (ulssdom.scrollLeft < 10) {
+      ulssdom.scrollLeft = 0;
+      document.getElementById('subtab-left-move').querySelector('img').setAttribute('src', 'left_move_only.png');
+      return;
+    }
+
+  }
+
+  //左移动
+  document.getElementById('subtab-left-move').onclick = function () {
+    leftclicknum--;
+
+    MoveWidth(leftclicknum, 'left');
+
+    /*var lidom = document.querySelector('li');
+    var liwidth = lidom && lidom.clientWidth;
+    //整体宽度
+    scrollleft = liwidth*rightclicknum
+    document.getElementById('subtab-content-ul').scrollLeft = scrollleft;*/
+  };
+
+  //判断元素是否隐藏
+  function getisshow(doms) {
+    if ('string' === typeof  doms) {
+
+      return 'none' == document.querySelector(doms).style.display;
+    } else {
+
+      return 'none' == doms.style.display;
+    }
+  }
+
+  //计算左右宽度
+  function getcalcsubtabsWidth(show) {
+    if (show) {
+      setCss(document.getElementById('subtab-left-move'), {display: 'inline-block'});
+      setCss(document.getElementById('subtab-right-move'), {display: 'inline-block'});
+    } else {
+      setCss(document.getElementById('subtab-left-move'), {display: 'none'});
+      setCss(document.getElementById('subtab-right-move'), {display: 'none'});
+    }
+    var maindomcomen = document.getElementById('main_subtabs'), calewidth;
+    var maindom = document.getElementById('main_subtabscoment');
+    var subdomcontent = document.getElementById('subtab-outer-container');
+    var leftdom = document.getElementById('subtab-left-move');
+    var rightdom = document.getElementById('subtab-right-move');
+    var leftNumdom = document.getElementById('subtab-right-conNum');
+    var rightMaindom = document.getElementById('subtab-mains');
+    if (getisshow(leftdom)) {
+      domwidth = maindom.offsetWidth - (leftNumdom.offsetWidth + rightMaindom.offsetWidth);
+    } else {
+      domwidth = maindom.offsetWidth - (leftNumdom.offsetWidth + rightMaindom.offsetWidth + leftdom.offsetWidth + rightdom.offsetWidth);
+    }
+    setCss(subdomcontent, {
+      width: domwidth + 'px'
+    });
+  }
+
+  //添加li事件
+  document.getElementById('subtab-add-li').onclick = function () {
+    var domul = document.getElementById('subtab-content-ul');
+    if (!(domul.querySelectorAll('li').length > 11)) {
+      getcalcsubtabsWidth();
+    }
+    var data_sign = new Date().getTime();
+    var domli = document.createElement('li');
+    //domli.classList.add("sub_li_c");
+    domli.className = 'sub_li_c';
+    domliwidthdef = domli.style['width'] = Math.ceil(Number(document.getElementById('subtab-outer-container').offsetWidth) / 11 - 2) + 'px';
+
+    domli.setAttribute('data_sign', data_sign);
+    var domlidivtext = document.createElement('div');
+    domlidivtext.className = 'li-firstdiv';
+    var domlidivX = document.createElement('div');
+    var domlidivimg = document.createElement('img');
+    domlidivimg.setAttribute('src', 'subtabs2x.png');
+    domlidivX.appendChild(domlidivimg);
+    domlidivX.className = 'li-divX';
+
+    domli.onmouseout = function () {
+      this.lastChild.style.display = 'none';
+    };
+    domli.onmouseover = function () {
+      this.lastChild.style.display = 'inline-block';
+    };
+    domlidivX.onclick = function () {
+      var parentli = this.parentNode;
+      var parentul = parentli.parentNode;
+      parentli ? parentul.removeChild(parentli) : '';
+      // parentli?document.getElementById('subtab-content-ul').removeChild(parentli):"";
+      deleteUlLi(parentli.getAttribute('data_sign'), true);
+    };
+    // addEvent(domlidivX,"click",clickcallback);
+    domis++;
+    domlidivtext.innerText = '其各其' + domis;
+    // domlidivX.innerText = 'X';
+    domli.appendChild(domlidivtext);
+    domli.appendChild(domlidivX);
+    domul.appendChild(domli);
+    //复制li页签详情li
+    var domconli = domli.cloneNode(true);
+    domconli.removeAttribute("style");
+    domconli.querySelector('.li-divX img').setAttribute('src', 'subs_down_close.png');
+    //li页签点击事件
+    addEvent(domli, 'click', function () {
+      var domliss = domul.getElementsByTagName('li');
+      for (var i = 0; i < domliss.length; i++) {
+        domliss[i].className = 'sub_li_c';
+
+      }
+      domli.className = 'sub_li_c clickli';
+
+      //this.lastChild.style.display="inline-block";
+    });
+    addEvent(domconli, 'click', function () {
+      var domcloneul = document.getElementById('subtab-content-ul-copy');
+      var domliss = domcloneul.getElementsByTagName('li');
+      for (var i = 0; i < domliss.length; i++) {
+        domliss[i].className = 'sub_li_c';
+      }
+      domconli.className = 'content_sub_li_c';
+    });
+    domconli.onmouseout = function () {
+      this.lastChild.style.display = 'none';
+    };
+    domconli.onmouseover = function () {
+      this.lastChild.style.display = 'inline-block';
+    };
+    domconli.lastChild.onclick = function () {
+      var parentli = this.parentNode;
+      var parentul = parentli.parentNode;
+      parentli ? parentul.removeChild(parentli) : '';
+      // parentli?document.getElementById('subtab-content-ul').removeChild(parentli):"";
+      deleteUlLi(parentli.getAttribute('data_sign'));
+    };
+    document.getElementById('subtab-content-ul-copy').appendChild(domconli);
+    getlicssNum('add');
+    MoveWidth('add', 'right');
+  };
+  document.getElementById('subtab-delete-li').onclick = function () {
+    var domli = document.getElementById('subtab-content-ul').querySelector('li');
+    domli ? document.getElementById('subtab-content-ul').removeChild(domli) : '';
+    var contentdiv = document.querySelector('#subtab-content-ul li .li-firstdiv');
+    getlicssNum('delete');
+  };
+
+  function setCss(obj, css) {
+    for (var attr in css) {
+      obj.style[attr] = css[attr];
+    }
+  }
+
+  function getlicssNum(methed) {
+    var lidom = document.getElementById('subtab-content-ul').querySelectorAll('li');
+    var contentdiv = document.querySelectorAll('#subtab-content-ul li .li-firstdiv');
+    document.getElementById('subtab-right-conNum').innerText = lidom.length;
+
+    if ('add' === methed) {
+      if (lidom.length > 11) {
+        getcalcsubtabsWidth('over');
+        for (var k = 0; k < contentdiv.length; k++) {
+          contentdiv[k].style.maxWidth = '60px';
+          contentdiv[k].parentNode.style.width = Math.floor(domwidth / 11 - 2) + 'px';
+        }
+      }
+    }
+    if ('delete' === methed) {
+      if (lidom.length < 12) {
+        getcalcsubtabsWidth();
+        for (var k = 0; k < contentdiv.length; k++) {
+          contentdiv[k].style.maxWidth = '95px';
+          contentdiv[k].parentNode.style.width = Math.floor(domwidth / 11 - 2) + 'px';
+        }
+      }
+    }
+  }
+
+  //点击打开页签详情
+  document.getElementById('subtab-right-conNum').onclick = function () {
+    var divcontent = document.getElementById('subtab-right-conNumcontent');
+    divcontent.onmouseout = function () {
+      numclick = '0';
+      // this.style.display="none";
+    };
+    if ('0' === numclick) {
+      numclick = '1';
+      divcontent.style.display = 'block';
+    } else {
+      numclick = '0';
+      divcontent.style.display = 'none';
+    }
+  };
+
+  //util删除ul中的li
+  function deleteUlLi(data, bloon) {
+    //bloon判断删除的父元素是否是详情中的
+    var ulStr = bloon ? 'subtab-content-ul-copy' : 'subtab-content-ul';
+    var domul = document.getElementById(ulStr), datasigns;
+    var domullis = domul.querySelectorAll('li');
+
+    if (typeof data === 'object') {
+      var urldom = document.getElementById('subtab-content-ul-copy');
+      var urldom1 = document.getElementById('subtab-content-ul');
+      var clickcallback = urldom.querySelectorAll('li');
+      var clickcallback1 = urldom1.querySelectorAll('li');
+      for (var i = 0; i < clickcallback.length; i++) {
+        if (data.cloceAll) {
+          urldom.removeChild(clickcallback[i]);
+        }
+        if (data.closeOther) {
+
+          if (data.strcli == clickcallback1[i].getAttribute('data_sign')) {
+            continue;
+          }
+          urldom.removeChild(clickcallback[i]);
+        }
+      }
+      for (var i = 0; i < clickcallback1.length; i++) {
+        if (data.cloceAll) {
+          urldom1.removeChild(clickcallback1[i]);
+        }
+        if (data.closeOther) {
+          if (data.strcli == clickcallback1[i].getAttribute('data_sign')) {
+            continue;
+          }
+          urldom1.removeChild(clickcallback1[i]);
+        }
+
+      }
+
+
+    } else {
+      for (var k = 0; k < domullis.length; k++) {
+        datasigns = domullis[k].getAttribute('data_sign');
+        if (typeof data === 'string' && data == datasigns) {
+          domul.removeChild(domullis[k]);
+          document.getElementById('subtab-right-conNum').innerText = domul.querySelectorAll('li').length;
+        }
+      }
+    }
+    setCss(document.getElementById('subtab-left-move'), {display: 'none'});
+    setCss(document.getElementById('subtab-right-move'), {display: 'none'});
+
+  }
+
+  document.querySelector('#subtab-right-conNumcontent .cloceAll').onclick = function () {
+    deleteUlLi({cloceAll: true});
+  };
+  document.querySelector('#subtab-right-conNumcontent .closeOther').onclick = function () {
+    var oneclick = document.querySelector('#subtab-content-ul-copy .content_sub_li_c');
+    var strcli = oneclick ? oneclick.getAttribute('data_sign') : '';
+
+    deleteUlLi({closeOther: true, strcli: strcli});
+  };
+  document.getElementById("subtab-mains").onclick=function () {
+    setCss(this,{background:"#ebebeb","border-top":"2px solid #388bf7"});
+  }
+</script>
+</html>

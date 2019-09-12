@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>td下拉框选</title>
+</head>
+<body>
+
+<table border="1" style="border-collapse: collapse;" id="tablelist1">
+  <thead></thead>
+  <tbody>
+  <tr>
+    <td class="td-1">11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td class="td-2">11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td class="td-3">11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td>11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td>11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td>11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td>11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td>11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td>11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  <tr>
+    <td>11111</td>
+    <td>22222</td>
+    <td>33333</td>
+    <td>44444</td>
+    <td>55555</td>
+    <td>66666</td>
+    <td>77777</td>
+    <td>88888</td>
+    <td>99999</td>
+    <td>1000000</td>
+  </tr>
+  </tbody>
+  <tfoot></tfoot>
+</table>
+<button id="tablebutton">
+  点击table
+</button>
+<script type="text/javascript">
+  document.getElementById("tablebutton").onclick=function(){
+    var x=document.getElementById('tablelist1').rows[0].cells;
+    //var x=document.getElementById('tablelist1').rows[0].cells;
+    for (i = 0; i <document.getElementById('tablelist1').rows.length; i++) {
+      var domstd = document.getElementById('tablelist1').rows[i].cells;
+      for (var j = 0; j < domstd.length; j++) {
+        var domstdElement = domstd[j];
+        domstdElement.onmousedown=function(e){
+
+          var events = e || window.event;
+
+          document.getElementById('tablelist1').onmousemove=function(e){
+            var events = e || window.event;
+            debugger
+            try {
+              events.pageY
+              console.log(events.pageY);
+            } catch (e) {
+
+              console.log(events.offsetY)
+            }
+
+          }
+        };
+        ;
+      }
+    }
+
+  }
+
+</script>
+</body>
+</html>

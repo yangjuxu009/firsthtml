@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tabel</title>
+</head>
+<body>
+<div id="parentIframe">
+  <div id="childIframe1" style="width: 100%;overflow: auto;height: 400px;">
+    <iframe src="ChildIframe1.html"  width="100%" frameborder="0" scrolling="no"></iframe>
+  </div>
+  <div id="childIframe2" style="width: 100%;overflow: auto;;height: 400px;" >
+    <iframe src="ChildIframe2.html"  width="100%" frameborder="0" scrolling="no"></iframe>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+     function calculationWeekAndDay(str,num){
+       var curDate = new Date(str);
+       /* 获取当前月份 */
+       var curMonth = curDate.getMonth();
+       if(isNaN(curMonth)){
+         return '';
+       }
+       /*  生成实际的月份: 由于curMonth会比实际月份小1, 故需加1 */
+       curDate.setMonth(curMonth + 1);
+       /* 将日期设置为0, 这里为什么要这样设置, 我不知道原因, 这是从网上学来的 */
+         curDate.setDate(0);
+       var dayCount=curDate.getDate();
+       var weekAraay = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+       var dayArrays = [];
+       var lastDayArrays = [];
+       for (var i = 1; i < dayCount+1; i++) {
+         var nowDate = new Date(str);
+         nowDate.setDate(i);
+         dayArrays.push({dayWeek:weekAraay[nowDate.getDay()],dayNum:i+"日"})
+       }
+       var returnObjs={dayAndWeek:dayArrays,calculationDay:dayCount};
+       if(typeof num==="number"&&(dayCount-num)>0){
+         for (var i = dayCount-num+1; i < dayCount+1; i++) {
+           var nowDate = new Date(str);
+           nowDate.setDate(i);
+           lastDayArrays.push({dayWeek:weekAraay[nowDate.getDay()],dayNum:i+"日"})
+         }
+       }
+       lastDayArrays.length > 0 ? returnObjs.lastDayArrays = lastDayArrays : '';
+       return returnObjs
+     }
+
+     console.log(JSON.stringify(calculationWeekAndDay('2019/05/22',3)));
+</script>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+/*div{
+ height: 200px;
+}*/
+    .right{
+      width: 100px;
+      background: #eb7350;
+      float: right;
+    }
+    .left{
+      height: 100px;
+      width: 100px;
+      background: #00c13f;
+      float: left;
+    }
+    .middle{
+      background: grey;
+      word-break: break-all;
+      white-space: normal;
+    }
+    .writhMode{
+      writing-mode: vertical-rl;
+      margin: 0 auto;
+      width: 500px;
+    }
+    .writhMode span{
+      opacity: 0;
+      transition: opacity 3s;
+    }
+  </style>
+</head>
+<body>
+<div class="writhMode">
+  <p><span>恐</span><span>恐</span><span>恐</span><span>恐</span><span>恐</span><span>龙</span><span>当</span><span>家</span><span>非</span></p>
+  <p><span>恐</span><span>恐</span><span>恐</span><span>恐</span><span>恐</span><span>龙</span><span>当</span><span>家</span><span>非</span></p>
+  <p><span>恐</span><span>恐</span><span>恐</span><span>恐</span><span>恐</span><span>龙</span><span>当</span><span>家</span><span>非</span></p>
+</div>
+<div style="/*width: 500px;height: 500px*/;background: #EBEBEB;display: flex;justify-content: center;align-items: center">
+  <div style="width: 100px;height: 100px;background: #cccccc"></div>
+</div>
+<!--<div style="width: 500px;height: 500px;background: #EBEBEB;display: grid;justify-content: center;align-items: center">
+  <div style="width: 100px;height: 100px;background: #cccccc"></div>
+</div>-->
+<!--
+<div class="left">dsfjsdlkfj1</div>
+<div class="right">dsfjsdlkfj3</div>
+<div class="middle">kfj2dsfjsdlkfj2</div>-->
+<input type="time" name="" id="">
+</body>
+<script type="text/javascript">
+
+
+
+
+  var spanArry = document.querySelectorAll('.writhMode span');
+  for (var i = 0; i < spanArry.length; i++) {
+    var spanArryElement = spanArry[i];
+    spanArryElement.style.transitionDelay = i * 0.1 + 's';
+    ;(function (i) {
+      setTimeout(function () {
+        spanArry[i].style.opacity = 1;
+      }, 0);
+    })(i);
+  }
+  let site = 'like.com';
+  var site1 = 'like.com';
+
+  let obj = {
+    site,
+    site1,
+    func: function(){
+      //  this指向window
+      console.log(this);
+      // undefined
+      console.log(this.site);
+    }
+  };
+  let obj1 = {
+    site,
+    site1,
+    func: function(){
+      //  this指向window
+      console.log(this);
+      // undefined
+      console.log(this.site);
+    }
+  };
+  obj.func()
+  var ttt = '100000000';
+  var ssss = ttt.repeat(10);
+  var ttt44 = '1000aa00bb0011';
+  var egx = /(?=(\B)(\d{3})+$)/g;
+  var egx4 = /(\d{2})+$/g;
+  var egx44 = /(?=(\B)(\d{2})+$)/g;
+  ttt.replace(egx4, '-');
+  var egx5 = /(?=\B((\w)\2)+$)/g;
+  ttt.replace(egx, ',');
+  var ssttt = '5500942596659';
+  var egx2 = /(\d{3})+$/g;
+  ssttt.match(egx2)
+  ttt.match(egx);
+
+  if(" "){
+    
+  }
+  var test1={
+    toString:function () {
+      return '1';
+    },valueOf:function () {
+      return '2';
+    }
+  }
+  String(test1);
+  
+
+  class A {
+    constructor() {
+      this.x = 1;
+      this.print = this.print.bind(this);
+    }
+     print() {
+      console.log(this.x);
+    }
+    print1() {
+      console.log(this.x);
+    }
+  }
+
+  A.prototype.namess = '55';
+
+  var aaa = new A();
+  const { print,print1 } = aaa;
+  
+  print();
+
+  class B extends A {
+    constructor() {
+      super();
+      this.y = 2;
+      this.x = 2;
+    }
+    m() {
+      super.print();
+      return 3;
+    }
+  }
+
+  let b = new B();
+  b.m() // 2
+/*
+  function F1() {
+    F2.call(this);
+    this.namefile = 'f1-constructor';
+  }
+  function F2() {
+   this.namefile2 = 'f2-constructor';
+  }
+
+  F2.prototype.name2 = 'name2';
+function F3() {
+
+}
+
+  var construtorf1=new F1();
+  construtorf1.prototype
+  F3.prototype = F2.prototype;
+  F1.prototype = new F3();
+  F1.prototype.constructor = F1;
+  var construtorfs=new F1();
+
+
+  class Person {
+
+    //自身属性
+    constructor( name , age,prName ) {
+      this.name = name;
+      this.age = age;
+      this.prName = prName ? 'proName' : undefined;
+    }
+
+    //原型对象的属性
+    say() {
+      return 'My name is ' + this.name + ', I am ' + this.age + ' years old';
+    }
+  }
+  Person.prototype.prName = 'proName';
+  var person = new Person( 'Jack' , 23);
+
+
+
+  var birth = '000/01/01';
+
+ /!* birth.replace(/0/g, function (a, b) {
+    
+    ;
+  });*!/
+  /!*
+  * 转义<body>转移为&lt;body&gt;*!/
+  function unHtml(str,reg) {
+    return str ? str.replace(reg || /[&<">'](?:(amp|lt|quot|gt|#39|nbsp|#\d+);)?/g, function (a, b) {
+       if(b){
+         return a;
+       }else {
+         return{
+           '<':'&lt;',
+           '&':'&amp;',
+           '"':'&quot;',
+           '>':'&gt;',
+           "'":'&#39;'
+         }[a]
+       }
+    }) : '';
+  }
+
+
+
+  var arrst = [1,2,5,9,2];
+  arrst.reduce((pre, cur) => {
+    //console.log(pre + ' ' + cur);
+
+    if(cur in pre){
+      pre[cur]++
+    }else{
+      pre[cur] = 1
+    }
+    return pre
+  },{});
+
+  var o = {
+    name:"myName",
+    age:122,
+    job:"ff",
+    sayName:function(){alert(this.name)}
+  };
+  Object.defineProperty(o,"name",{enumerable:false});
+  for(var ll in o){
+
+  };
+  let arr = [1, 2, 3, 4, 4, 1];
+  for(var ww in arr){
+  }
+  let newArr = arr.reduce((pre, cur) => {
+    if (!pre.includes(cur)) {
+      return pre.concat(cur);
+    } else {
+      return pre;
+    }
+  }, []);
+  var a = 55;
+  var Afunc = function () {
+
+    console.log(this.a);
+  };
+
+  var obj={
+    a:5,
+    fc:Afunc,
+    b:56,
+    c:[1,2,3]
+  }
+  obj.ff = 99;
+
+  obj.fc= obj.fc;
+  obj.fc()
+  function f(y,z){
+    return this.x+y+z;
+  }
+  var m = f.call({x:1});
+
+ // console.log(m(3)); // 6
+function deepClone(obj) {
+  var obs = {};
+  for (var key in obj) {
+    if("object"==typeof obj[key]&&"null"!=typeof obj[key]){
+      if(obj.hasOwnProperty(key)){
+        if("[object Array]"==Object.prototype.toString.call(obj[key])){
+          obs[key] = [];
+        }else {
+          obs[key] = {};
+        }
+        deepClone(obj[key], obs[key]);
+      }
+    }else {
+      obs[key] = obj[key];
+    }
+  }
+  return obs;
+};
+  obj.c.name="666"
+  var obsss = deepClone(obj);*/
+
+
+</script>
+</html>

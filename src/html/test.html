@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+  <meta charset="utf-8" />
+  <title>text-transform_CSS参考手册_web前端开发参考手册系列</title>
+  <meta name="author" content="Joy Du(飘零雾雨), dooyoe@gmail.com, www.doyoe.com" />
+  <style>
+    .capitalize span{text-transform:capitalize;}
+    .uppercase span{text-transform:uppercase;}
+    .lowercase span{text-transform:lowercase;}
+  </style>
+  <script src="../js/layui/newclear.js"></script>
+</head>
+<body>
+<div>
+  <div class="divall">
+    <div class="divssc">5</div>
+    <div>5</div>
+    <div class="divssc">5</div>
+    <div >5</div>
+    <div class="divssc">5</div>
+    <div >5</div>
+    <div class="divssc">5</div>
+    <div class="divssc">5</div>
+    <div class="divssc">5</div>
+    <div class="divssc">5</div>
+    <div class="divssc">5</div>
+  </div>
+  <span>交易查询：</span> <span>从
+                    <input name="control_date" type="text" id="control_date" size="10"
+                           maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" />
+                   <input type="button" name="button" id="button" value="button" onclick="new Calendar().show(this.form.control_date);" /></span>
+  <span>至
+                   <input name="control_date2" type="text" id="control_date2" size="10"
+                          maxlength="10" onclick="new Calendar().show(this);" readonly="readonly" />
+                    <input type="button" name="button" id="button1" value="button" onclick="new Calendar().show(this.form.control_date2);" /></span>
+
+</div>
+<ul class="test">
+  <li>
+    <strong>将每个单词的首字母转换成大写</strong>
+    <div>原　文： <span>how do you do.</span></div>
+    <div class="capitalize" contentEditable="true">转换后： <span>how do you do.</span></div>
+  </li>
+  <li>
+    <strong>转换成大写</strong>
+    <div>原　文： <span>how do you do.</span></div>
+    <div class="uppercase">转换后： <span>how do you do.</span></div>
+  </li>
+  <li>
+    <strong>转换成小写</strong>
+    <div>原　文： <span>HOW ARE YOU.</span></div>
+    <div class="lowercase">转换后： <span>HOW ARE YOU.</span></div>
+  </li>
+</ul>
+</body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+
+ var sss="".length
+ debugger
+  var strn = obp.toString();
+  debugger
+  var d1 = $.Deferred();
+  var d2 = $.Deferred();
+
+  $.when( d1, d2 )/*.then(function ( v1, v2 ) {
+    debugger
+    console.log( v1 ); // "Fish"
+    console.log( v2 ); // "Pizza"
+  }).fail(function (va,v2) {
+    debugger;
+  })*/.always(function (va,vv) {
+    debugger
+  });
+setTimeout(function () {
+  //d1.resolve( "Fish" );
+  d1.reject( "Fish" );
+
+},3000)
+
+  d2.resolve( "Pizza" );
+
+  var strsss="07:30-08:00,09:00-10:00,09:00-10:00";
+  var strsss1="09-07-08";
+
+  var exg=/^(\d{2}:\d{2})(?=-.*-).*(-\d{2}:\d{2})$/
+  var exg5=/^(\d{2}:\d{2})(?=(?=-.*-))|(?:(-\d{2}:\d{2})$)/
+  var exg1=/0(?!8|9|0)/
+ var sss= strsss.match(exg)
+ var sss5= strsss.match(exg5)
+ var sss1= strsss1.match(exg1)
+
+
+  var a=function (){
+    this.name="nihaobu"
+  }
+  var objA= new a();
+  var objB= new a();
+  //var ss=a();
+  this.name = '999';
+  //Object.prototype.lailai = 5;
+
+  objA.nnn = 5;
+  objB.nnn
+
+  var bloonsa = objA instanceof a;
+  var bloonsb=objB instanceof Array
+  var c=[{name:3},2,3,5]
+  var b={}
+  var bloonsb1=c instanceof Object
+
+  var bloonsb1=b instanceof Array
+
+  document.querySelectorAll(".divssc")
+  for (var i in document.querySelectorAll(".divssc")) {
+  // debugger
+    ;
+  }
+
+  function runAsync(){
+    var p = new Promise(function(resolve, reject){
+      //做一些异步操作
+      setTimeout(function(){
+        console.log('执行完成');
+       resolve('随便什么数据');
+       // reject('随便什么数据2');
+
+      }, 1000);
+    });
+    return p;
+  }
+  function runAsync1(){
+    var p = new Promise(function(resolve, reject){
+      //做一些异步操作
+      setTimeout(function(){
+        console.log('执行完成1');
+       resolve('随便什么数据1');
+        //reject('随便什么数据2');
+
+      }, 500);
+    });
+    return p;
+  }
+  function runAsync2(){
+    var p = new Promise(function(resolve, reject){
+      //做一些异步操作
+      setTimeout(function(){
+
+
+        console.log('执行完成2');
+       resolve('随便什么数据2');
+        //reject('随便什么数据2');
+
+      }, 2000);
+    });
+    return p;
+  }
+ /* Promise.all([runAsync(),runAsync2(),runAsync1()])
+ .then(function(data,ddds){
+    //debugger
+    //console.log(data);
+    //后面可以用传过来的数据做些其他操作
+    //......
+  }).catch(function (data,ddd) {
+    //debugger
+    ;
+  })*/
+
+
+</script>
+</html>
+

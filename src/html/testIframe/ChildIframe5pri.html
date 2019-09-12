@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .table-div-float-left {
+      width: 50%;
+      float: left;
+      overflow: hidden;
+    }
+    .table-div-float-right {
+      width: 50%;
+      float: right;
+      overflow: hidden;
+    }
+    .div-left-width,.leftAllTable {
+      width: 500px;
+    }
+    .div-title {
+      overflow: hidden;
+    }
+    .div-float-left{
+      float: left;
+    }
+    #childDivContent td{
+      width: 70px;
+      white-space: nowrap;
+      height: 30px;
+      border: 1px solid #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #childDivtitle th{
+      width: 70px;
+      white-space: nowrap;
+      height: 30px;
+      border: 1px solid #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    #childDivtitle table {
+      border-collapse: collapse;
+      border: 1px solid #333333;
+    }
+    #childDivContent table {
+      border-collapse: collapse;
+      border: 1px solid #333333;
+    }
+
+  </style>
+</head>
+<body>
+
+
+<div style="position: relative">
+
+  <div style="width: 300px;height: 100px;overflow-x: auto;overflow-y: auto;position: absolute" id="table-left-content" onscroll="document.getElementById('table-left-title').style.width=(this.offsetWidth-(this.offsetWidth-this.clientWidth))+'px',document.getElementById('table-left-title').scrollLeft=this.scrollLeft">
+    <table style="width: 1260px">
+      <tbody>
+      <tr ><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >组1</td><td >计1</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+  let code = '{"apple, orange, cherry, peach.":0.33}';
+
+  JSON.parse(code);  // 正常
+  JSON.stringify(code);
+  //eval(code);  // 错误
+  var reg = new RegExp('apple(,)\\sorange\\1', 'i');
+  var str = '3.141'
+    debugger
+    /\d+(?!\.)/.exec('3.141')
+
+  debugger
+  code.match(reg);
+  $('#父窗口中的元素ID', parent.document).contents().find("#iframe中的控件ID")
+
+</script>
+
+</html>

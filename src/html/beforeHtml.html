@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>before</title>
+  <style type="text/css">
+
+
+    .firstdiv:hover:before{
+
+      
+      content: "<div>ddddds</div>";
+    }
+    .seconddiv{
+      display: none;
+    }
+    .firstdiv:hover .seconddiv{
+      display: block;
+      position: absolute;
+      left: 40px;
+      top: 90px;
+    }
+
+    .seconddiv{
+      height: 300px;
+      width: 500px;
+      background: #388BF7;
+    }
+
+    .seconddiv:before{
+    border: 10px solid transparent;
+      border-right: 10px solid #00B83F;
+      height: 0;
+      width: 0;
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      content: "";
+    }
+    #testdiv .divinputDate{
+      background: #00B83F;
+      margin: 10px;
+    }
+    span{
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+  </style>
+</head>
+<body>
+<!--<div style="width: 500px;height: 300px;background: #cccccc;position: relative" class="firstdiv">1122
+  <div class="seconddiv">1122ddd</div>
+
+</div>-->
+<input id="divinputs" type="text" value=""/>
+<button id="clssbutton">按钮</button>
+
+<div id="testdiv" style="width: 600px;height: 600px;background: #EBEBEB;float: left">
+
+
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+<div><span class="divinputDate"><div>11</div></span><span><input type="text">11</span></div>
+</div>
+
+</body>
+<script>
+  var snum = 0;
+  var isbic=true;
+  var defaultValue = '';
+  document.getElementById('testdiv').oncontextmenu = function () {
+
+    snum = 0;
+  };//mouseleave
+  document.querySelector('#testdiv .divinputDate').onclick=function () {
+    isbic=false;
+
+
+  };
+
+  var doms = document.querySelectorAll('#testdiv .divinputDate');
+  for (var i = 0; i < doms.length; i++) {
+    var dom = doms[i];
+
+    dom.onmouseleave = function () {
+      if(!isbic){
+        this.style.background = 'red';
+        this.className="divinputDate222"
+      }
+      snum = 0;
+    };
+
+
+  }
+
+  document.getElementById('testdiv').onmousedown = function () {
+
+    isbic=false;
+    snum = 0;
+  };
+  document.getElementById('testdiv').onmousemove = function () {
+    snum++;
+    this.style.top=snum+"px";
+    console.log(snum);
+    var doms = document.querySelector('#testdiv .divinputDate');
+    if(!isbic){
+
+     /* doms.style.position = 'absolute';
+      doms.style.top=Number(snum+23)+"px";*/
+    }
+
+
+  };
+  document.getElementById('testdiv').onmouseup = function () {
+   console.log(snum)
+    isbic=true;
+
+
+
+    for (var i = 0; i < doms.length; i++) {
+      var dom = doms[i];
+      dom.style.background = '#EBEBEB';
+
+    }
+
+  };
+
+
+
+  //document.getElementById("clssbutton").onclick.call(document.getElementById("clssbutton"),"nihaos");
+
+
+  /* document.getElementById('divinputs').onclick = function () {
+    debugger;
+    this.value = this.value.match(/^[1-9][0-9]{0,7}|^0?/);
+  };*/
+  var inputIndex=0;
+  /*document.getElementById("divinputs").onkeyup=function () {
+    this.value = this.value.match(/^[1-9][0-9]{0,7}|^0?/);
+  }*/
+
+
+  /*
+   document.getElementById("divinputs").onblur=function () {
+  //this.value = this.value.match(/^[1-9]{0,2}(?:\.\d{0,2})/);
+   //console.log(this.value.match(/(^\s*(0|[1-9][0-9]?)(?:(\.\d{1,2}|( *))))/))
+   console.log(this.value.match(/1[0]{6}|(^\s*(0|[1-9][0-9]{0,5})(?:(\.\d{1,2}|( *))))/))
+
+
+
+   var stt=[5,6,3,9,8]
+   var stt1=[5,6,3,9,8,11,12]
+   var c = stt.concat(stt1);
+ }
+
+
+var objs = {nihao:"buhao"};
+objs.obj1 = 2;
+objs.obj2 = 3;
+objs.obj3 = 4;
+objs.obj4 = 5;
+var newobjs = {nihao:"niebuhao"};
+newobjs.obj1 = 2;
+newobjs.obj2 = 3;
+newobjs.obj3 = 4;
+newobjs.obj5 = 5;
+debugger*/
+
+  /*  var str3 = "haaaaaaaaaaaaaaaabaaaaaaaaaaaab";
+    console.log(str3.match(/h.*b/));
+    console.log(str3.match(/h.*?b/));
+    console.log(str3.match(/ha+/));
+    console.log(str3.match(/ha+?/));
+    var str = "hello123back, hello456back";
+    console.log(str.match(/hello(?!456).*?back/));
+    console.log((str.match(/(hello).*!/)));
+    console.log((str.match(/(?:hello).*!/)));
+    var str2 = '<input type="text" id="xxx" name="xxx" value="xxx" /><input type="hidden" id="xxx" name="xxx" value="xxx" />';
+    console.log(str2.match(/<input[^>]*?hidden.*?\/>/));
+
+
+    var str3 = '9aaabc98aaaba';
+
+    console.log(str3.match(/a*!/));*/
+</script>
+</html>

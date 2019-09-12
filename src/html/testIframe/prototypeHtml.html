@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+  var ssd = [1, 2, 5, '', 6];
+  var ssst = ssd.sort(function (a, b) {
+    return b - a
+      ;
+  });
+  var sssssss = ssst.filter(function (dd) {
+    return dd != '';
+    ;
+  });
+  function JcFun() {
+    this.name = 'Jcfuns';
+    this.age1 = 66;
+  }
+
+  function JcFun1() {
+    this.name1 = 'Jcfuns';
+    this.age1 = 66;
+  }
+
+  function JcFun2() {
+    this.name2 = 'Jcfuns';
+    this.age2 = 66;
+  }
+
+  JcFun1.prototype = JcFun2.prototype;
+  JcFun.prototype = JcFun1.prototype;
+  var jsd = new JcFun();
+
+function erryData() {
+  return "ddd"
+  ;
+}
+  function deferTime() {
+
+    return new Promise((resolve,reject) => {
+      setTimeout(function () {
+
+        /* reject("catch22");*/
+        resolve('deferTime');
+
+      }, 10000);
+    });
+
+  }
+  function deferTime1() {
+
+    return new Promise((resolve,reject) => {
+      setTimeout(function () {
+
+        /* reject("catch22");*/
+        resolve('deferTime1');
+
+      }, 20000);
+    });
+
+  }
+
+  setTimeout(function () {
+  }, 1000);
+  function deferTime2() {
+
+    return new Promise((resolve,reject) => {
+      setTimeout( ()=> {
+         /*reject("catch22");*/
+        resolve('deferTime2');
+
+      }, 2000);
+    });
+
+
+  }
+
+  var sse = Reflect.ownKeys(deferTime2);
+  function* fffs() {
+    yield ()=>{console.log("1")}
+    yield ()=>{console.log("2")}
+
+  }
+  var generator = fffs();
+  deferTime2().then(function (ss,ddd) {
+    ;
+  })
+  function getJSON() {
+    return new Promise(function(resolve, reject) {
+      setTimeout(function () {
+        resolve('chgong');
+
+      },1000)
+    });
+  /* return setTimeout(function () {
+     return "dsfdsfs"
+     ;
+   })*/
+  } function getJSON1() {
+    return new Promise(function(resolve, reject) {
+      setTimeout(function () {
+        resolve('chgong1');
+
+      },3000)
+    });
+  /* return setTimeout(function () {
+     return "dsfdsfs"
+     ;
+   })*/
+  }
+
+  async function main() {
+    var data = await getJSON().catch(function (ss) {
+      //return ss
+      ;
+    });
+    var data1 = await getJSON1().catch(function (ss) {
+      //return ss
+      ;
+    });
+    return data+data1;
+
+    console.log(data); // NOT undefined!
+    console.log(data1); // NOT undefined!
+  }
+
+
+  main().then(function (ss) {
+    debugger
+    ;
+  },function (ss) {
+    debugger
+    ;
+  }).catch(function (ss) {
+    debugger
+    ;
+  });
+  var aas = 'ddd';
+  if(false){
+    aas = 'ddsss';
+  }else {
+    aas = 'kkk';
+  }
+ /* Promise.race([deferTime(),deferTime1(),deferTime2()]).then(function (ss) {
+    debugger
+    ;
+  }).catch(function (ss) {
+    debugger
+    ;
+  })*/
+</script>
+</html>

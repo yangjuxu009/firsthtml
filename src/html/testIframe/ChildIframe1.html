@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style type="text/css">
+    #childDivContent{
+      width: 100%;
+      overflow: auto;
+      height: 138px;
+    }
+  </style>
+</head>
+
+<body>
+<div id="childDivContent" onscroll="myFunction1(this)">
+<table id="childTable">
+</table>
+</div>
+</body>
+<script type="text/javascript">
+  for (var k = 0; k < 600; k++) {
+    var domtr = document.createElement('tr');
+    for (var i = 0; i < 100; i++) {
+
+      var domtd = document.createElement('td');
+      var domspan=document.createElement('span')
+
+      var domtext = document.createTextNode('tdtext'+i);
+
+      domspan.appendChild(domtext);
+      domtd.appendChild(domtext);
+      domtr.appendChild(domtd);
+
+    }
+    document.getElementById("childTable").appendChild(domtr);
+  }
+  function myFunction1(e) {
+    parent.document.querySelector('#childIframe2 iframe').contentWindow.myFunction1(e);
+      //.scrollLeft= e.scrollLeft
+  }
+
+
+
+</script>
+<script type="text/javascript">
+  var myEvent = new CustomEvent("myevent", {
+    detail: {
+      doILoveRed: true
+    }
+  });
+
+  // 监听myevent事件
+  document.addEventListener("myevent", function(event) {
+    console.log(event.detail); // {doILoveRed: true}
+  });
+
+  // 触发事件
+  document.dispatchEvent(myEvent);
+
+</script>
+</html>

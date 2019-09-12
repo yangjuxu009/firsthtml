@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta content="black" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <meta content="email=no" name="format-detection">
+  <style type="text/css">
+    /* ============================================================
+    flex：定义布局为盒模型
+    flex-v：盒模型垂直布局
+    flex-1：子元素占据剩余的空间
+    flex-align-center：子元素垂直居中
+    flex-pack-center：子元素水平居中
+    flex-pack-justify：子元素两端对齐
+    兼容性：ios 4+、android 2.3+、winphone8+
+    ============================================================ */
+    .flex{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}
+    .flex-v{-webkit-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;}
+    .flex-1{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;}
+    .flex-align-center{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;}
+    .flex-pack-center{-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+    .flex-pack-justify{-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}
+  </style>
+</head>
+<body>
+
+<div class="flex flex-pack-justify">
+  <div>模块一</div>
+  <div>模块二</div>
+  <div>模块三</div>
+  <div>模块四</div>
+</div>
+<div id="canvas1" >
+  <input type="range" min="-360" max="360" value="7" onchange="rotate(this.value)">
+
+  <canvas id="canvas" width="350" height="350" style="transform: rotate(-360deg);">
+    Your browser does not support the canvas element.
+  </canvas>
+  <span id="span1"></span>
+</div>
+<script>
+  function rotate(value)
+  {
+    document.getElementById('canvas').style.webkitTransform="rotate(" + value + "deg)";
+    document.getElementById('canvas').style.msTransform="rotate(" + value + "deg)";
+    document.getElementById('canvas').style.MozTransform="rotate(" + value + "deg)";
+    //document.getElementById('canvas').style.OTransform="rotate(" + value + "deg)";
+    document.getElementById('canvas').style.transform="rotate(" + value + "deg)";
+    document.getElementById('span1').innerHTML=value + "deg";
+  }
+  document.write("可用宽度: " + screen.availWidth);
+  document.write("可用高度: " + screen.availHeight);
+  document.write(screen.width + "*" + screen.height);
+</script>
+</body>
+<script type="text/javascript">
+
+  function draw() {
+    var ctx = document.getElementById('canvas').getContext('2d');
+    ctx.fillRect(0,0,350,350);
+    ctx.translate(0,0);
+
+    // Create a circular clipping path
+    ctx.beginPath();
+    ctx.arc(175,175,175,0,Math.PI,true);
+    ctx.lineWidth=10;
+    ctx.strokeStyle = 'red';
+   //ctx.clip();
+
+
+    // draw background
+    var lingrad = ctx.createLinearGradient(0,0,175,175);
+    lingrad.addColorStop(0, '#232256');
+    lingrad.addColorStop(1, '#417849');
+
+    ctx.fillStyle = lingrad;
+    ctx.fillRect(0,0,350,350);
+    ctx.fill();
+    ctx.closePath();
+    // draw stars
+ /*   for (var j=1;j<50;j++){
+      ctx.save();
+      ctx.fillStyle = '#fff';
+      ctx.translate(175-Math.floor(Math.random()*350),
+        175-Math.floor(Math.random()*350));
+      drawStar(ctx,Math.floor(Math.random()*4)+2);
+      ctx.restore();
+    }*/
+
+  }
+
+  function drawStar(ctx,r){
+    ctx.save();
+    ctx.beginPath()
+    ctx.moveTo(r,0);
+    for (var i=0;i<9;i++){
+      ctx.rotate(Math.PI/5);
+      if(i%2 == 0) {
+        ctx.lineTo((r/0.525731)*0.200811,0);
+      } else {
+        ctx.lineTo(r,0);
+      }
+    }
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+  draw();
+</script>
+</html>

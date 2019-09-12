@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .child-div {
+      width: 200px;
+      height: 200px;
+      border: 1px solid grey;
+    }
+
+    .child-div-child {
+      display: inline-block;
+      width: 30%;
+      height: 10px;
+      top: 0;
+
+      background: transparent;
+      color: cadetblue;
+      filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.707, M12=-0.707, M21=0.707, M22=0.707, SizingMethod='auto expand');
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      margin-bottom: 70px;
+
+    }
+
+    .child-div-child:hover {
+      transform: scale(1.2) translateY(-30px) rotate(-2.5deg);
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="child-div" style="position: relative;z-index: 5;width: 300px">
+  <div style="position: absolute;overflow: hidden;height: 100%" id="child-divs">
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+    <div class="child-div child-div-child">556565</div>
+  </div>
+  <div style="position: absolute;z-index: 5;height: 100%;width: 100%">
+    dddsfdsfsdf
+  </div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+var a=4444;
+
+var arrss = [1,2,3,4,5,6];
+function quickArray(arr) {
+  if(arr.length<=1){
+    return arr;
+  }
+  var left=[];
+  var right = [];
+  var p = arr.splice(Math.floor(arr.length / 2), 1)[0];
+  for (var i = 0; i < arr.length; i++) {
+    var arrElement = arr[i];
+    if(arrElement>p){
+      right.push(arrElement);
+    }else {
+      left.push(arrElement);
+    };
+
+  }
+  console.log("left"+quickArray(left))
+  console.log("right"+quickArray(right))
+  var sss=quickArray(left).concat(p,  quickArray(right));
+  console.log(sss)
+  return  sss
+}
+quickArray(arrss)
+
+  class Coder{
+    name(val){
+      console.log(val);
+      return val;
+    }
+
+    constructor(a,b){
+      this.a=a;
+      this.b=b;
+    }
+
+
+    add(){
+      return this.a+this.b;
+    }
+  }
+  debugger
+
+
+  let shuang=new Coder(1,2);
+  console.log(shuang.add());
+
+  var strDates = new Date(+new Date().getFullYear() + 1 + '/12/31');
+
+  // 判断是否为对象
+  function isObject(o) {
+    return (typeof o === 'object' || typeof o === 'function') && o !== null;
+  }
+
+  // 迭代递归法：深拷贝对象与数组
+  function deepClone(obj) {
+    if (!isObject(obj)) {
+      throw new Error('obj 不是一个对象！');
+    }
+
+    let isArray = Array.isArray(obj);
+    let cloneObj = isArray ? [] : {};
+    for (let key in obj) {
+      cloneObj[key] = isObject(obj[key]) ? deepClone(obj[key]) : obj[key];
+    }
+
+    return cloneObj;
+  }
+
+  deepClone({
+    name: 'ddfsd', ddfun: function (dd) {
+      ;
+    }
+  });
+</script>
+</html>

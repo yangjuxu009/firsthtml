@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+    <link rel="stylesheet" href="css/es6test.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <title></title>
+    <script src="js/math.js"></script>
+
+  </head>
+	<body>
+		<div id="testdiv">
+      <span>
+
+      first:<input type="text" class="divInput"  autocomplete="on"/>
+      </span>
+      <span>
+
+      select:<input type="number" autocomplete="on" class="divInput" />
+      </span>
+
+      mingzz:<input id="name" name="" type="text"  />
+
+
+
+    </div>
+
+<div>
+
+  <div style="height: 100px;width: 100px;float: left;background: lightblue">我是一个左浮动的元素</div>
+  <div style="width: 200px; height: 200px;background: #eee;overflow: hidden">我是一个没有设置浮动,
+    也没有触发 BFC 元素, width: 200px; height:200px; background: #eee;</div>
+</div>
+
+
+    <div class="container">
+      <!-- Content here -->
+    </div>
+    <div class="container-fluid">
+      ...
+    </div>
+    <div class="alert alert-primary" role="alert">
+      A simple primary alert—check it out!
+    </div>
+
+
+    <p>
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Link with href
+      </a>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Button with data-target
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </div>
+
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+-->
+  </body>
+
+  <script type="text/javascript">
+    math.eval('0.1+0.2')
+
+    document.cookie="username=John Doe";
+    function testfun(oneTime) {
+      var ss={coId:"200",coName:"北京"}
+      JSON.stringify(ss)
+      var s,y;
+      s=[2,2,3.3]
+
+
+     var regExp = /(^-$|^-?100$|^-?[1-9]?[0-9]{1}\.$|^-?[1-9]?[0-9]{1}\.{1}[0-9]{1,2}$|^-?[1-9]?[0-9]{1}$)/;
+      var exarg= regExp;
+      document.querySelector(".divInput").oninput=function(){
+if(!regExp.test(this.value)){
+  this.value="";
+}
+
+
+      }
+
+
+      y="01";
+      s=y-1;
+      var nowDate=new Date().getTime();
+      while (new Date().getTime()<nowDate+oneTime) ;
+      console.log("yancihi");
+    }
+
+
+   // location.hash=="#nihaoddd"?console.log("kaisssss"):testfun(5000);
+    console.log("结束");
+    document.documentURI
+    function calculates(a,b,f) {
+      debugger
+      document.cookie
+      window.sessionStorage.getItem("name");
+      window.sessionStorage.setItem("name","你好");
+      window.localStorage.setItem("name","你好dd");
+      window.localStorage.clear();
+
+      document.cookie = "name=555;";
+      document.cookie = "expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+      var texssl;
+      var as ,bs;
+        as = a.toString().split('.')[1]?a.toString().split('.')[1].toString().split("e")[0].length:0;
+      if (as&&a.toString().indexOf('e')>-1) {
+        as=Math.abs(Number(as))+Math.abs(Number(a.toString().split("e")[1]));
+      }
+
+      if (!as){
+        as =  a.toString().split("e")[1];
+        if(!as){
+          as=0
+        }
+      }
+      bs =  b.toString().split(".")[1]?b.toString().split(".")[1].toString().length:0;
+      if (bs&&b.toString().indexOf('e')>-1) {
+        bs=Math.abs(Number(bs))+Math.abs(Number(b.toString().split("e")[1]));
+      }
+      if (!bs){
+        bs =  b.toString().split("e")[1];
+        if(!bs){
+          bs=0
+        }
+      }
+      var es=Math.max(as,bs);
+      var asb=Math.abs(Number(as))+Math.abs(Number(bs));
+
+      switch (f) {
+
+
+          case "*":
+            if (asb>18) {
+              texssl=(a*b).toFixed(18);
+
+            }else {
+
+              texssl= (a*b).toFixed(asb);
+            }
+          break;
+          case "/": texssl= a/b;
+          break;
+          case "+": texssl= ((a*Math.pow(10,es))+(b*Math.pow(10,es)))/Math.pow(10,es);
+          break;
+          case "-": texssl= ((a*Math.pow(10,es))-(b*Math.pow(10,es)))/Math.pow(10,es);
+          break;
+      }
+      return texssl;
+
+    }
+
+    calculates(0.0000000101,0.00000001,"*");
+
+
+
+  </script>
+	<!--<script type="text/javascript" src="../js/es6test.js"></script>-->
+</html>

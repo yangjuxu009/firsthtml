@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    .table-div-float-left {
+      width: 50%;
+      float: left;
+      /* display: inline-block;*/
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    .div-left-width {
+      width: 100%;
+    }
+
+    .div-title {
+      overflow: hidden;
+    }
+
+    .div-float-left {
+      float: left;
+      /* display: inline-block;*/
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+
+    #childDivContentleft .div-tr {
+      height: 31px;
+      border: 0;
+      border-left: 1px solid #333333;
+
+      padding-bottom: 1px;
+    }
+
+    #childDivContentleft td, #childDivContentright td {
+      width: 70px;
+      max-width: 70px;
+      white-space: nowrap;
+      height: 30px;
+      border: 1px solid #333333;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #childDivtitleleft th, #childDivtitleright th {
+      width: 70px;
+      max-width: 70px;
+      white-space: nowrap;
+      height: 30px;
+      border: 1px solid #333333;
+      border-right: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    #childDivtitleleft table, #childDivtitleright table {
+      border-collapse: collapse;
+      /*border: 1px solid #333333;*/
+    }
+
+    #childDivContentleft table, #childDivContentright table {
+      border-collapse: collapse;
+     /* border: 1px solid #333333;*/
+    }
+
+    .leftAllTable {
+      float: left;
+      /*display: inline-block;*/
+      box-sizing: border-box;
+      border-right: 1px solid #333333;
+    }
+
+    .rightAllTable {
+      float: right;
+      /*display: inline-block;*/
+      box-sizing: border-box;
+    }
+
+    .divrightcontentHeight {
+      height: 300px;
+    }
+
+    #right-table-content td {
+      border-top: 0;
+    }
+
+    /*合计左侧title左宽度*/
+    .width-div36 {
+      width: 160px;
+    }
+
+    /*合计titletable宽度*/
+    .width-table {
+      width: 160px
+    }
+
+    /*表头背景色*/
+    .title-Style-th {
+      background: #00c13f
+    }
+
+    /*合计左侧title右宽度*/
+    .divWidth64 {
+      width: 239px;
+    }
+    #childDivContentright td.right-td-content-1{
+      border-left: 0;
+    }
+    #table-left-title tr th:first-child{
+      border-left: 0;
+    }
+    #right-table-title tr th:first-child{
+      border-left: 0;
+    }
+    #table-left-content tr td:first-child{
+      border-left: 0;
+    }
+    #childDivContentleft tr:first-child td{
+      border-top: 0;
+    }
+    :target
+    {
+      border: 2px solid #D4D4D4;
+      background-color: #e5eecc;
+    }
+  </style>
+</head>
+<body>
+<h1>这是标题</h1>
+
+<p><a href="#news1">跳转至内容 1</a></p>
+<p><a href="#news2">跳转至内容 2</a></p>
+
+<p>请点击上面的链接，:target 选择器会突出显示当前活动的 HTML 锚。</p>
+
+
+<p><b>注释：</b> Internet Explorer 8 以及更早的版本不支持 :target 选择器。</p>
+<div class="allDiv" style="position: relative;padding-left: 400px">
+
+
+  <div class="leftAllTable" style="width: 400px;position: absolute;top: 0;left: 0;">
+
+
+    <!-- 左边栏位title-->
+    <div id="childDivtitleleft" class="div-left-width div-title">
+
+      <div class="table-div-float-left width-div36 title-Style-th">
+        <table class="width-table">
+          <thead>
+          <tr class="towTr" style="height: 66px">
+            <th>排班班组</th>
+            <th style="border-right: 1px solid #333333">月合计</th>
+          </tr>
+
+          </thead>
+        </table>
+      </div>
+      <!-- width: 63%;
+       float: left;
+       height: 31px;
+       border: 1px solid #333333;
+       border-right: 0;
+       text-align: center;
+       background: green;-->
+      <div class="table-div-float-left title-Style-th divWidth64">
+        <div style="    height: 32px;
+    border-top: 1px solid #333333;text-align: center;line-height: 30px;border-left: 0">
+          班型统计（天）
+        </div>
+        <div class="table-div-float-left title-Style-th" id="table-left-title" style="width: 100%;">
+          <table style="width: 1260px">
+            <thead>
+            <tr>
+              <th>休</th>
+              <th>行政/早中</th>
+              <th>早晚</th>
+              <th>中晚</th>
+              <th>早</th>
+              <th>中</th>
+              <th>晚</th>
+              <th>大夜</th>
+              <th>小夜</th>
+              <th>早中晚</th>
+              <th>早中夜</th>
+              <th>中晚夜</th>
+              <th>早夜</th>
+              <th>中夜</th>
+              <th>早中晚夜</th>
+            </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- 左边栏位content-->
+    <div id="childDivContentleft" class="div-left-width divrightcontentHeight"
+         style="border-left: 1px solid #333333; overflow: hidden ;position: relative">
+      <div style="width: 100%;text-align: center">
+        <div class="div-tr" style="border-bottom: 1px solid #333333;">排班人数</div>
+        <div class="div-tr" style="border-bottom: 1px solid #333333;">人均工时</div>
+      </div>
+      <div class="table-div-content-leftAndright" style="width: 100%">
+        <div class="div-float-left width-div36">
+          <table class="width-table">
+            <tbody>
+            </tbody>
+          </table>
+
+        </div>
+        <div style="overflow-x: hidden;overflow-y: hidden" id="table-left-content"
+             class="div-float-left divWidth64">
+          <table style="width: 1260px">
+            <tbody>
+            </tbody>
+          </table>
+
+          <div
+            style="position: absolute;bottom: 0;width: 66%;overflow-x: auto;overflow-y:hidden;height: 17px;padding-bottom: 17px;right: 0"
+            id="scrollDivDynamic"
+            onscroll="document.getElementById('table-left-title').scrollLeft=this.scrollLeft,document.getElementById('table-left-content').scrollLeft=this.scrollLeft">
+            <div style="width: 1260px;height: 17px"></div>
+          </div>
+
+        </div>
+        <div style="clear: both"></div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="rightAllTable" style="overflow: hidden;width: 100%">
+
+    <!-- 右边栏位title-->
+    <div id="childDivtitleright" class="div-left-width div-title">
+      <div class="table-div-float-left title-Style-th" id="right-table-title" style="width: 100%;">
+        <table style="width: 1260px">
+          <thead>
+          <tr><th>1日</th><th>2日</th><th>3日</th><th>4日</th><th>5日</th><th>6日</th><th>7日</th><th>8日</th><th>9日</th><th>10日</th><th>11日</th><th>12日</th><th>13日</th><th>14日</th><th>15日</th><th>16日</th><th>17日</th><th>18日</th><th>19日</th><th>20日</th><th>21日</th><th>22日</th><th>23日</th><th>24日</th><th>25日</th><th>26日</th><th>27日</th><th>28日</th><th>29日</th><th>30日</th><th>31日</th></tr>
+          <tr><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th><th>星期六</th><th>星期日</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th></tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+    <!-- 右边栏位content-->
+    <div id="childDivContentright" class="div-left-width">
+      <div class="table-div-content-leftAndright" style="width: 100%">
+        <div style="width: 100%;overflow-x: auto;overflow-y: auto" id="right-table-content"
+             class="div-float-left divrightcontentHeight"
+             onscroll="rightContentScroll(this)">
+          <table style="width: 1260px">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div style="clear: both"></div>
+</div>
+
+<p id="news1"><b>内容 1...</b></p>
+<p id="news2"><b>内容 2...</b></p>
+</body>
+<script src="../../js/ztree/jquery-1.4.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  //获取日期星期  str 日期格式2019/05/24 num 获取最后几天
+  function calculationWeekAndDay(str, num) {
+    var curDate;
+    str ? curDate = new Date(str) : curDate = new Date();
+    /* 获取当前月份 */
+    var curMonth = curDate.getMonth();
+    if (isNaN(curMonth)) {
+      return '';
+    }
+    /*  生成实际的月份: 由于curMonth会比实际月份小1, 故需加1 */
+    curDate.setMonth(curMonth + 1);
+    /* 将日期设置为0, 这里为什么要这样设置, 我不知道原因, 这是从网上学来的 */
+    curDate.setDate(0);
+    var dayCount = curDate.getDate();
+    var weekAraay = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    var dayArrays = [];
+    var lastDayArrays = [];
+    for (var i = 1; i < dayCount + 1; i++) {
+      var nowDate;
+      str ? nowDate = new Date(str) : nowDate = new Date();
+      nowDate.setDate(i);
+      dayArrays.push({dayWeek: weekAraay[nowDate.getDay()], dayNum: i + '日'});
+    }
+    var returnObjs = {dayAndWeek: dayArrays, calculationDay: dayCount};
+    if (typeof num === 'number' && (dayCount - num) > 0) {
+      for (var i = dayCount - num + 1; i < dayCount + 1; i++) {
+        var nowDate;
+        str ? nowDate = new Date(str) : nowDate = new Date();
+        nowDate.setDate(i);
+        lastDayArrays.push({dayWeek: weekAraay[nowDate.getDay()], dayNum: i + '日'});
+      }
+    }
+    lastDayArrays.length > 0 ? returnObjs.lastDayArrays = lastDayArrays : '';
+    return returnObjs;
+  }
+
+  function rightContentScroll(ethis) {
+    document.getElementById('right-table-title').style.width = (ethis.offsetWidth - (ethis.offsetWidth - ethis.clientWidth)) + 'px', document.getElementById('right-table-title').scrollLeft = ethis.scrollLeft, document.getElementById('childDivContentleft').scrollTop = ethis.scrollTop;
+    document.getElementById('scrollDivDynamic').style.bottom = '-' + (ethis.scrollTop) + 'px';
+  }
+//str 时间入参"2019/05/13"
+  setTopTitle('2019/05/13');
+  function setTopTitle(str){
+    //#table-left-title table 类型table  title
+    //#table-left-content table 类型table content
+    var titleClassTypeArray = '休，行政/早中，早晚，中晚，早，中，晚，大夜，小夜，早中晚，早中夜，中晚夜，早夜，中夜，早中晚夜'.split('，');
+    //#right-table-title table 日期table title
+    //dayAndWeek  calculationDay ||lastDayArrays
+    var dayAndWeekArray = calculationWeekAndDay(str);
+    var trdom = $('<tr>');
+    for (var i = 0; i < titleClassTypeArray.length; i++) {
+
+      var thdom = $('<th>').text(titleClassTypeArray[i]);
+      trdom.append(thdom);
+    }
+    $('#table-left-title table').html('').append(trdom);
+//初始化右侧内容随表头初始化
+    $('#right-table-content table tbody').html('');
+    //#right-table-title table 日期table title
+    var titleTrDomOne = $('<tr>');
+    var titleTrDomTwo = $('<tr>');
+    for (var j = 0; j <2 ; j++) {
+      //初始化两行右content
+      var tdcontent= $('<tr>');
+      for (var i = 0; i < dayAndWeekArray.calculationDay; i++) {
+        var dayAndWeekArrayElement = dayAndWeekArray.dayAndWeek[i];
+        var titleThDomOne = $('<th>');
+        var titleThDomTwo = $('<th>');
+        var initTdDom = $('<td>');
+        tdcontent.append(initTdDom);
+        if(j==1){
+          titleThDomTwo.text(dayAndWeekArrayElement.dayWeek);
+          titleTrDomTwo.append(titleThDomTwo);
+        }else {
+          titleThDomOne.text(dayAndWeekArrayElement.dayNum);
+          titleTrDomOne.append(titleThDomOne);
+        }
+      }
+      $('#right-table-content table tbody').append(tdcontent);
+    }
+    $('#right-table-title table').css({width: (72 * dayAndWeekArray.calculationDay) + 'px'});
+    $('#right-table-title table thead').html("").append(titleTrDomOne).append(titleTrDomTwo);
+    $('#right-table-content table').css({width: $('#right-table-title table').width() + 'px'});
+
+
+
+
+    var arraoarrays = [1, 2, 3, 4, 5, 6, 7, 89, , 77, 77];
+    arraoarrays.length = 20;
+    setTimeout(function () {
+      setLeftContent(arraoarrays, dayAndWeekArray);
+    })
+
+  }
+  //设置内容
+function setLeftContent(obsArray,dayAndWeekArray){
+
+
+  if (!obsArray || obsArray.length == 0) {
+   return
+  }
+  //content dayAndWeekArray.calculationDay
+  //content #right-table-content table tbody
+  $('#right-table-content table').css({width: $('#right-table-title table').width() + 'px'});
+  $('#right-table-content table tbody').html('');
+
+
+  $('#childDivContentleft table tbody').html('');
+
+  //控制右边内容
+  for (var j = 0; j < obsArray.length; j++) {
+
+//右侧内容
+    //setTimeout(function () {
+      var iElement = $('<tr>');
+      for (var i = 1; i < 1 + dayAndWeekArray.calculationDay; i++) {
+        //i模拟值 如果i>9.5加class  td-red
+        var tdelements;
+        i > 3.5 ? tdelements = $('<td>').attr('class', 'right-td-content-' + i).text(i) : tdelements = $('<td>').attr('class', 'right-td-content-' + i + ' td-red').text("的hi大师傅大师傅几点睡了会计分录达康书记泛利大厦姐夫啦都是"+i).attr("title","sd第三方快递费打开了司法鉴定所李开复的首付款的积分");
+
+        iElement.append(tdelements);
+      }
+
+      $('#right-table-content table tbody').append(iElement);
+   // });
+
+
+     //控制左边内容
+     //#childDivContentleft table
+    setTimeout(function () {
+      if (j > 1) {
+        var leftElementtr0 = $('<tr>');
+        var leftElementtr1 = $('<tr>');
+        $('#childDivContentleft table').each(function (index, events) {
+          if (index == 1) {
+            //j行数据Table1
+            //左边 右内容
+            for (var k = 0; k < 15; k++) {
+              var leftElementtd1_1 = $('<td>').text(j + '行' + k + '列');
+              leftElementtr1.append(leftElementtd1_1);
+            }
+            $(events).find('tbody').append(leftElementtr1);
+          } else {
+            //j行数据Table0
+            var leftElementtd0_0 = $('<td>').text(j + '行' + 0 + '列');
+            var leftElementtd0_1 = $('<td>').text(j + '行' + 1 + '列');
+            leftElementtr0.append(leftElementtd0_0).append(leftElementtd0_1);
+            $(events).find('tbody').append(leftElementtr0);
+          }
+
+        });
+      }
+    });
+
+
+
+
+  }
+  setTimeout(function () {
+    $('#childDivContentleft table tr:nth-of-type(3n+2)').css({background:"green"});
+  },2000)
+
+}
+
+
+
+</script>
+
+</html>
