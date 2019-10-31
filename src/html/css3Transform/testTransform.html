@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style type="text/css">
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .three-dimensional {
+      width: 300px;
+      height: 200px;
+      border: 1px solid;
+      margin-top: 30px;
+      margin-left: 30px;
+      perspective: 1000px; /* 景深 面的 (宽+高)*2 */
+
+    }
+    .transforms {
+      transition: transform 1s ;
+    }
+    div:active{
+      transform: rotateX(-120deg);
+      transform-origin: top;
+
+    }
+
+
+  </style>
+</head>
+<body>
+<div class="three-dimensional transforms">ss</div>
+<div class="three-dimensional" id="obtns">ss</div>
+</body>
+<script type="text/javascript">
+
+  var btndom = document.getElementById('obtns');
+  btndom.addEventListener('click', btnclicks(btns, 1000, true), false);
+
+  function btnclicks(fn, times) {
+    var t = false;
+    var num = 1;
+    return function () {
+      var that = this;
+      if (num == 1 && !t) {
+        num++;
+        fn.call(that);
+        t = true;
+        setTimeout(function () {
+          t = false;
+          num = 1;
+        }, times);
+      }
+    };
+  }
+
+  function btns() {
+
+    console.log(this.innerText);
+  }
+</script>
+</html>

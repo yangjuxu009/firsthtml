@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  input[type=text]::-ms-clear
+  {
+    display: none;
+  }
+</style>
+<body>
+<section><div>ddfdfd</div></section><section><a href="javascript:;">dfdfdf</a></section><section><em>dddddd</em>
+  <em>dddddd</em>fd</section>
+<textarea name="" id="" cols="30" rows="10">dfdsfdsfds</textarea>
+</body>
+
+<script >
+  var strs = '10000000';
+  var rex = /(\d{3}$)/g;
+  var ttt = 's 98653266523';
+  var sss = '235111511e151e111';
+  var egx = /(?=(\B)(\d{3})+$)/;
+  var egx1 = /(\B)(\d{3})+$/g;
+  var egx2 = /(?:\B(\d{3})+$)/;
+  var egx3 = /(?=\B(\d{3})+$)/g;
+  ttt.match(egx);
+  ttt.match(egx1);
+  ttt.match(egx2);
+
+  var ddde = ttt.replace(egx, function (s,v,e,f,m) {
+
+
+  });
+  var dddess = sss.replace(egx3, function (s,v,e,f,m) {
+
+    if(e==0){
+      return 'f';
+    }
+    return 'g';
+  });
+  debugger
+  var ddde1 = ttt.replace(egx1, "f");
+  var ddde2 = ttt.replace(egx2, "s");
+  debugger
+  function dakuohao() {
+    var st = 213;
+    {
+      var sts = 222;
+
+    }
+    {
+      let ss2 = 333;
+    }
+    var ss3 = 4443;
+
+    ;
+  }
+
+  dakuohao();
+  var promise1 = Promise.resolve(3);
+  var promise2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 5000, {foo:'foo111'});
+  });
+  var promise3 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 500, {foo:'foo'});
+  });
+var  objs={
+  name:"first",
+  fu:{fu:()=>{
+  this
+  }}
+}
+/*  Promise.all([promise1, promise2, promise3]).then(function(values) {
+    debugger
+    console.log(values);
+  }).catch(objs.fu.fu).finally(()=>{
+
+    debugger
+    this
+  });*/
+async function firstFn() {
+  try {
+    let name = await
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+          reject("firsts");
+        }, 6000);//3秒后输出1 2
+      });
+
+    console.log(name);
+  } catch (e) {
+
+  }
+}
+
+  firstFn();
+  var arra = [1, 2, 3, 6, 5, 4, 78, 9];
+  arra = arra.concat([111, 222]);
+  var newarra = arra;
+  var nearrraaaaad = [11,55,66];
+  arra = nearrraaaaad;
+
+  function insert(value) {
+    return{
+      into:function (array) {
+        return{ after:function (afterValue) {
+
+         array.splice(array.indexOf(afterValue)+1,0,value);
+            return array;
+        }}
+      }
+    };
+  }
+
+
+
+
+</script>
+</html>

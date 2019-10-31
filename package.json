@@ -67,6 +67,7 @@
     "url": "https://github.com/h5bp/html5-boilerplate.git"
   },
   "dependencies": {
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "typescript": "^3.6.4"
   }
 }
